@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="session_summary_view" model="ir.ui.view">
+            <field name="name">session_summary_view</field>
+            <field name="model">session.summary.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                        </group>
+                        <group>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Print  Report" name="generate_partner_ledger_pdf" type="object"
+                                default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="partner_ledger_action" model="ir.actions.act_window">
+            <field name="name">Session Summary Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">session.summary.wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="session_summary_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+                id="session_summary_menu"
+                name="Session Summary Report"
+                parent="point_of_sale.menu_point_rep"
+                action="partner_ledger_action"/>
+
+    </data>
+</odoo>

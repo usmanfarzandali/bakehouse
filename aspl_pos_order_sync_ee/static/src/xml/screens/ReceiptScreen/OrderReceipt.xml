@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="pos_reprint_template" inherit_id="point_of_sale.template" xml:space="preserve">
+
+	<t t-name="OrderReprintScreen55" owl="1">
+		<div class="receipt-screen screen">
+			<div class="screen-content">
+				<div class="top-content">
+					<div class="top-content-center">
+						<h1> Print Order </h1>
+					</div>
+					<div class="button next" t-att-class="{ highlight: !locked }"
+                        t-on-click="orderDone">
+                        New Order <i class="fa fa-angle-double-right"></i>
+                    </div>
+				</div>
+				<div class="centered-content">
+					<div class="button print" t-on-click="printReceipt">
+						<i class="fa fa-print"></i>
+						<span> </span>
+						<span>Print</span>
+					</div>
+					<div class="pos-receipt-container">
+<!--						<OrderReceipt order="props.order" t-ref="order-receipt" />-->
+						<OrderReprintReceipt55 receipt="props.receipt" order="props.order" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+	<t t-name="OrderReprintReceipt55" owl="1">
+        <div class="pos-receipt">
+<!--            <t t-if="env.pos.get_order().getOrderReceiptEnv().receipt.company.logo">-->
+<!--                <img class="pos-receipt-logo" t-att-src="env.pos.get_order().getOrderReceiptEnv().receipt.company.logo" alt="Logo"/>-->
+<!--                <br/>-->
+<!--            </t>-->
+<!--                <t t-if="env.pos.get_order().getOrderReceiptEnv().receipt.company.name">-->
+<!--                    <h2 class="pos-receipt-center-align">-->
+<!--                        <t t-esc="env.pos.get_order().getOrderReceiptEnv().receipt.company.name" />-->
+<!--                    </h2>-->
+<!--                </t>-->
+            <div class="pos-receipt-contact">
+                <t t-if="env.pos.get_order().getOrderReceiptEnv().receipt.company.name">
+                    <h1 class="pos-receipt-center-align">
+                        <t t-esc="env.pos.get_order().getOrderReceiptEnv().receipt.company.name" />
+                    </h1>
+                </t>
+<!--                <t t-if="env.pos.get_order().getOrderReceiptEnv().receipt.company.contact_address">-->
+<!--                    <div style="font-weight: bolder; font-size: 16px;"><t t-esc="env.pos.get_order().getOrderReceiptEnv().receipt.company.contact_address" /></div>-->
+<!--                </t>-->
+<!--                <t t-if="env.pos.get_order().getOrderReceiptEnv().receipt.company.email">-->
+<!--                    <div><t t-esc="env.pos.get_order().getOrderReceiptEnv().receipt.company.email" /></div>-->
+<!--                </t>-->
+<!--                <t t-if="env.pos.get_order().getOrderReceiptEnv().receipt.company.website">-->
+<!--                    <div><t t-esc="env.pos.get_order().getOrderReceiptEnv().receipt.company.website" /></div>-->
+<!--                </t>-->
+                <t t-if="env.pos.config.is_header_or_footer and env.pos.config.receipt_header">
+                    <div style="font-weight: bolder; font-size: 13px;">
+                        <t t-esc="env.pos.config.receipt_header"/>
+                    </div>
+           	    </t>
+                <t t-if="env.pos.get_order().getOrderReceiptEnv().receipt.company.phone">
+                    <div style="font-weight: bolder; font-size: 13px;">
+                        <t t-esc="env.pos.get_order().getOrderReceiptEnv().receipt.company.phone" />
+                    </div>
+                </t>
+<!--                <t t-if="env.pos.get_order().getOrderReceiptEnv().receipt.company.vat">-->
+<!--                    <div><t t-esc="env.pos.get_order().getOrderReceiptEnv().receipt.company.vat_label"/>:<t t-esc="env.pos.get_order().getOrderReceiptEnv().receipt.company.vat" /></div>-->
+<!--                </t>-->
+<!--                <t t-if="env.pos.get_order().getOrderReceiptEnv().receipt.header_html">-->
+<!--                    <t t-raw="env.pos.get_order().getOrderReceiptEnv().receipt.header_html" />-->
+<!--                </t>-->
+<!--                <t t-if="!env.pos.get_order().getOrderReceiptEnv().receipt.header_html and env.pos.get_order().getOrderReceiptEnv().receipt.header">-->
+<!--                    <div style="white-space:pre-line"><t t-esc="env.pos.get_order().getOrderReceiptEnv().receipt.header" /></div>-->
+<!--                </t>-->
+            </div>
+            <div style="font-weight: bolder; font-size: 18px; margin-top: 5px;">
+                <table align="center" style="width: 100%;">
+                    <tr align="center">
+                        <td style="border: 1px solid black; padding:2px;">Order Type</td>
+                        <td style="border: 1px solid black; padding:2px;">Order # </td>
+                    </tr>
+                    <tr align="center">
+                        <td style="border: 1px solid black; padding:2px;">Take Away</td>
+                        <td style="border: 1px solid black;padding:2px;"><t t-esc="props.receipt.name" /></td>
+                    </tr>
+                </table>
+            </div>
+
+            <t t-if="env.pos.get_order().getOrderReceiptEnv().receipt.cashier">
+                <div class="cashier" style="margin: 5px 0px 5px 0px">
+                    <div style="font-weight: bolder; font-size: 14px;">Salesman : <t t-esc="env.pos.get_order().getOrderReceiptEnv().receipt.cashier" /></div>
+                </div>
+            </t>
+
+            <!-- Orderlines -->
+
+			<div>
+           		<table style="width: 100%; font-size: 12px;">
+           			<thead style="height: 27px;">
+           				<th style="width: 5%; border: 1px solid black;padding:2px; text-align: center;">#</th>
+           				<th style="width: 55%; border: 1px solid black;padding:2px;">Description</th>
+<!--						<th style="width: 20%;">Discount</th>-->
+						<th style="width: 20%; border: 1px solid black;padding:2px; text-align: center;">Qty</th>
+           				<th style="width: 20%; border: 1px solid black;padding:2px; text-align: right;">Amount</th>
+           			</thead>
+           			<tbody style="font-weight: bolder;">
+           				<t t-foreach='env.pos.get_order().export_for_printing().orderlines' t-as='line' t-key="line.id">
+           					<tr style="height: 20px;" >
+           						<td align="center">
+           							<t t-esc="1+line_index"></t>
+<!--           							<t t-esc="line.id"></t>-->
+           						</td>
+           						<td style="padding: 5px;">
+           							<t t-esc='line.product_name' />
+           						</td>
+<!--								<td>-->
+<!--									<t t-if="line.discount !== 0">-->
+<!--										<t t-esc="line.discount"/>%-->
+<!--									</t>-->
+<!--           						</td>-->
+           						<td align="center">
+           							<t t-esc="line.quantity"/>
+           						</td>
+           						<td align="right">
+           							<t t-esc='env.pos.format_currency_no_symbol(line.price)'/>
+           						</td>
+           					</tr>
+           				</t>
+           			</tbody>
+           		</table>
+       		</div>
+
+            <br/><br/>
+
+            <!-- Sub Total, Disc. Amt, Net Total and Date&Time -->
+            <div>
+           		<table style="width: 100%; font-size: 16px;">
+           			<tbody style="font-weight: bolder;">
+                        <tr align="right">
+                            <td style="width: 50%;">Sub Total :</td>
+                            <td style="width: 50%; border: 1px solid black; padding:5px;">
+                                <t t-esc="env.pos.format_currency_no_symbol(env.pos.get_order().export_for_printing().subtotal)"></t>
+                            </td>
+                        </tr>
+                        <tr align="right">
+                            <td style="width: 50%;">Disc. Amt :</td>
+                            <td style="width: 50%; border: 1px solid black; padding:5px;">
+                                <t t-esc="env.pos.format_currency_no_symbol(env.pos.get_order().export_for_printing().total_discount)"/>
+                            </td>
+                        </tr>
+                        <tr align="right">
+                            <td style="width: 50%;">Net Amount :</td>
+                            <td style="width: 50%; border: 1px solid black; padding:5px;">
+                                <t t-esc="env.pos.format_currency_no_symbol(env.pos.get_order().export_for_printing().total_with_tax)"></t>
+                            </td>
+                        </tr>
+                        <tr align="center">
+                            <td style="width: 50%;"></td>
+                            <td style="width: 50%; font-size: 12px; padding:5px;">
+                                <t t-esc="props.receipt.date.localestring" />
+                            </td>
+                        </tr>
+           			</tbody>
+           		</table>
+       		</div>
+
+            <br/>
+
+            <div style="text-align: center; font-size: 14px;">
+                <span>THANKS FOR VISITING US</span>
+            </div>
+
+            <div>
+                <span style="display:none;" t-esc="receiptBarcode"/>
+                <div style="margin:auto;margin-top:10px;" id="barcode_print22"></div>
+            </div>
+
+            <br/>
+
+            <div style="padding: 5px; text-align: center; font-size: 14px; font-weight: bolder; border: 1px solid black;">
+                <span>powered by: RASCO GLOBAL SOLUTIONS (PVT)(0322-4999847)</span>
+            </div>
+
+        </div>
+	</t>
+
+</templates>
+
+
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<templates id="template" xml:space="preserve">-->
+<!--    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">-->
+<!--        <xpath expr="//div[hasclass('pos-receipt-order-data')]" position="replace">-->
+<!--            <div class="pos-receipt">-->
+<!--                <div class="pos-receipt-order-data">-->
+<!--                    <div><t t-esc="env.pos.get_order().get_pos_reference() ? env.pos.get_order().get_pos_reference() : env.pos.get_order().name" /></div>-->
+<!--                    <div><t t-esc="env.pos.get_order().get_date_order() ? env.pos.get_order().get_date_order() : receipt.date.localestring" /></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </xpath>-->
+
+<!--        <xpath expr="//div[hasclass('receipt-change')]" position="before">-->
+<!--            <t t-if="env.pos.get_order().get_journal()">-->
+<!--               <div t-foreach="env.pos.get_order().get_journal()" t-as="line">-->
+<!--                   <span>-->
+<!--                       <t t-esc="line.payment_method"/>-->
+<!--                   </span>-->
+<!--                   <span style="float:right;">-->
+<!--                       <t t-esc="env.pos.format_currency(line.amount)"/>-->
+<!--                   </span>-->
+<!--               </div>-->
+<!--                <br/>-->
+<!--           </t>-->
+<!--        </xpath>-->
+
+<!--        <xpath expr="//div[hasclass('receipt-change')]" position="replace">-->
+<!--            <div class="pos-receipt">-->
+<!--                <div class="pos-receipt-amount receipt-change">-->
+<!--                    CHANGE-->
+<!--                     <t t-if="env.pos.get_order().get_amount_return()">-->
+<!--                        <span t-esc="env.pos.format_currency(env.pos.get_order().get_amount_return())"-->
+<!--                              class="pos-receipt-right-align"/>-->
+<!--                     </t>-->
+<!--                    <t t-if="!env.pos.get_order().get_amount_return()">-->
+<!--                        <span t-esc="env.pos.format_currency(env.pos.get_order().get_change())"-->
+<!--                              class="pos-receipt-right-align"/>-->
+<!--                     </t>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </xpath>-->
+<!--    </t>-->
+<!--</templates>-->

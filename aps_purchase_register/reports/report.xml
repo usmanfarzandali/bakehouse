@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_register_report" model="ir.actions.report">
+        <field name="name">Purchase Register Report</field>
+        <field name="model">purchase.register.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">aps_purchase_register.purchase_register_template</field>
+        <field name="report_file">Purchase Register Xlsx</field>
+        <field name="binding_model_id" ref="aps_purchase_register.model_purchase_register_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+    <record id="purchase_register_summary_report" model="ir.actions.report">
+        <field name="name">Purchase Register Summary Report</field>
+        <field name="model">purchase.register.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">aps_purchase_register.purchase_register_summary_template</field>
+        <field name="report_file">Purchase Register Xlsx</field>
+        <field name="binding_model_id" ref="aps_purchase_register.model_purchase_register_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+    <record id="purchase_register_summary_report_pdf" model="ir.actions.report">
+        <field name="name">Purchase Register Summary Report PDF</field>
+        <field name="model">purchase.register.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">aps_purchase_register.purchase_register_template_pdf</field>
+        <field name="report_file">aps_purchase_register.purchase_register_template_pdf</field>
+        <field name="binding_model_id" ref="aps_purchase_register.model_purchase_register_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+     <record id="purchase_register_detail_report_pdf" model="ir.actions.report">
+        <field name="name">Purchase Register Detail Report PDF</field>
+        <field name="model">purchase.register.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">aps_purchase_register.purchase_register_detail_pdf</field>
+        <field name="report_file">aps_purchase_register.purchase_register_detail_pdf</field>
+        <field name="binding_model_id" ref="aps_purchase_register.model_purchase_register_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+
+</odoo>

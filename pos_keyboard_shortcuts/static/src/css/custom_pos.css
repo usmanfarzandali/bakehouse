@@ -1,0 +1,83 @@
+/*
+ *  Table Style
+ */
+
+table{
+    border-radius: 10px;
+    background: rgba(0,0,0,.11);
+}
+
+table.shortcut-tips-table{
+    width: 100%;
+    color: #333;
+}
+
+table.shortcut-tips-table th{
+    background: #333;
+    color: #fff;
+}
+
+table.shortcut-tips-table th,td{
+    height: 30px;
+    text-align: left;
+    padding: 6px 12px;
+}
+table.shortcut-tips-table tr{
+//    border-bottom: 2px solid #D62929;
+    border-top: 2px solid #D62929;
+}
+table.shortcut-tips-table tr:hover{
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,.6);
+    background: rgba(0,0,0,.2);
+    transition: box-shadow .3s;
+}
+h3{
+    padding: 15px;
+    border-radius: 20px 20px 0 0;
+    background: #333;
+    color: #fff;
+    margin: 0;
+}
+/*
+ *  Scrollbar Style
+ */
+#style-2::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+#style-2::-webkit-scrollbar
+{
+    scroll-behavior: smooth;
+	width: 10px;
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+#style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #D62929;
+}
+
+/*
+ *  Buttons Style
+ */
+
+#cancel{
+	border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #D62929;
+	color: #fff;
+}
+#tipsButton{
+    border-radius: 20px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #7bcedb;
+}
+
+#paragraphTip:hover {
+    font-size: 16px;
+}

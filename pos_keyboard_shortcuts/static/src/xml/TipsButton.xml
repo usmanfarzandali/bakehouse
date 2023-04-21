@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="TipsButton" owl="1">
+        <button class="control-button o_fiscal_position_button" id="tipsButton">
+<!--            <i class="fa fa-info-circle fa-spin" aria-label="Tips Button" title="Tips Button"/>-->
+            <i class="fa fa-info-circle" aria-label="Tips Button" title="Tips Button"/>
+            <span>Shortcut Tips (F2)</span>
+        </button>
+    </t>
+</templates>

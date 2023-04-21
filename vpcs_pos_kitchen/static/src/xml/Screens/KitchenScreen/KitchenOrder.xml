@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="KitchenOrder" owl="1">
+        <div class="kitchen-order kitchen-order-list-view" style="word-break: break-all;" t-if="props.order &amp;&amp; props.order.orderlines.length">
+            <div class="vrow k-order-heading">
+                <div class="width20 vcenter font20 pull-left">
+                    <div class="vtable_no" t-if="props.order.table">
+                        <t t-esc="props.order.floor"/>
+                        <br />
+                        <t t-esc="props.order.table" />
+                    </div>
+                </div>
+                <div class="width40 k-order-title pull-left">
+                    <div class="span-title mt8 font18">
+                        Order :
+                        <span class="j_order_name">
+                            <t t-esc="props.order.uid" />
+                        </span>
+                    </div>
+                </div>
+                <div class="width20 vcenter font20 pull-left">
+                    <small>Order Placed</small>
+                    <div class="vorder_placed" t-att-data-creation_date="props.order.creation_date">
+                        <t t-esc="creation_date" />
+                    </div>
+                </div>
+                <div class="width20 vcenter font20 pull-left">
+                    <small>Waiting Time</small>
+                    <div class="js_waiting_tm" t-att-data-creation_date="props.order.creation_date" t-ref="waiting_time">
+                    </div>
+                </div>
+                <div class="width20 vcenter font20 pull-left">
+                    <small>Priority</small>
+                    <div class="font22">
+                        <t t-esc="env.pos.priority_by_key[props.order.priority]" />
+                    </div>
+                </div>
+            </div>
+            <table class="k-orderline-list" style="word-break: break-word">
+                <thead>
+                    <tr>
+                        <th width="3%">#</th>
+                        <th width="25%">Item Name</th>
+                        <th width="15%">Category</th>
+                        <th width="15%">Note</th>
+                        <th width="8%">Quantity</th>
+                        <th width="30%">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-set="tot_qty" t-value="0" />
+                    <t t-set="index" t-value="1" />
+                    <t t-foreach="props.order.orderlines" t-as="line">
+                        <tr t-if="line &amp;&amp; line.product &amp;&amp; line.state != 'done'">
+                            <t t-set="tot_qty" t-value="tot_qty + line.qty" />
+                            <td class="k-table-row" t-attf-style="background: {{line.product.bgcolor}}">
+                                <span t-esc="index" />
+                            </td>
+                            <td align="left" class="k-table-row" t-attf-style="background: {{line.product.bgcolor}}">
+                                <span t-esc="line.product.display_name" />
+                            </td>
+                            <td align="left" class="k-table-row" t-attf-style="background: {{line.product.bgcolor}}">
+                                <t t-set="categ" t-value="line.product.pos_categ_id" />
+                                <t t-if="categ &amp;&amp; categ.length == 2">
+                                    <span t-esc="categ[1]" />
+                                </t>
+                            </td>
+                            <td align="left" class="k-table-row" t-attf-style="background: {{line.product.bgcolor}}">
+                                <span t-esc="line.note" />
+                            </td>
+                            <td class="k-table-row" t-attf-style="background: {{line.product.bgcolor}}">
+                                <span t-esc="line.qty" />
+                            </td>
+                            <td class="k-table-row" t-attf-style="background: {{line.product.bgcolor}}">
+                                <!-- New -> Cooking -> Ready To Serve -->
+                                <KitchenOrderStateButton order="props.order" orderline="line" mode="props.mode"/>
+                            </td>
+                            <t t-set="index" t-value="index + 1" />
+                        </tr>
+                    </t>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th align="right">Total</th>
+                        <th>
+                            <strong t-esc="tot_qty" />
+                        </th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </t>
+</templates>

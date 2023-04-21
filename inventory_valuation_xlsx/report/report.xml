@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inventory_valuation_report" model="ir.actions.report">
+        <field name="name">Inventory OPSI</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">inventory_valuation_xlsx.inventory_valuation_template</field>
+        <field name="report_file">Inventory Valuation Xlsx</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+    <record id="inventory_valuation_summary_report" model="ir.actions.report">
+        <field name="name">Inventory OPSI Summary</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">inventory_valuation_xlsx.inv_valuation_summary_template</field>
+        <field name="report_file">Inventory Summary Valuation Xlsx</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+     <record id="inventory_valuation_summary_report_pdf" model="ir.actions.report">
+        <field name="name">Inventory OPSI Summary pdf</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">inventory_valuation_xlsx.report_supplier_id_card</field>
+        <field name="report_file">Inventory Summary Valuation Pdf</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+    <record id="product_stock_report" model="ir.actions.report">
+        <field name="name">Product Stock</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">inventory_valuation_xlsx.product_stock_template</field>
+        <field name="report_file">Product Stock Xlsx</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+    <record id="product_stock_report_pdf" model="ir.actions.report">
+        <field name="name">Product Stock Pdf</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">inventory_valuation_xlsx.product_stock_pdf</field>
+        <field name="report_file">Product Stock Pdf</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+    <record id="inventory_valuation_location_report" model="ir.actions.report">
+        <field name="name">Inventory Valuation Location Wise</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">inventory_valuation_xlsx.inventory_location_template</field>
+        <field name="report_file">Inventory location Wise Xlsx</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+     <record id="inventory_valuation_location_pdf" model="ir.actions.report">
+        <field name="name">Inventory Valuation Location Pdf</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">inventory_valuation_xlsx.inv_value_location_pdf</field>
+        <field name="report_file">Inventory location Wise Pdf</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+
+    <record id="inventory_valuation_stock_report" model="ir.actions.report">
+        <field name="name">Inventory Valuation Stock Wise</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">inventory_valuation_xlsx.inv_valuation_stock_template</field>
+        <field name="report_file">Inventory Stock Wise Xlsx</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+
+    <record id="inventory_stock_summary_report" model="ir.actions.report">
+        <field name="name">Inventory Stock Summary Wise</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">inventory_valuation_xlsx.inv_stock_summary_template</field>
+        <field name="report_file">Inventory Stock Summary Wise Xlsx</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+    <record id="inventory_stock_summary_report_pdf" model="ir.actions.report">
+        <field name="name">Inventory Stock Summary Wise pdf</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">inventory_valuation_xlsx.inv_stock_summary_pdf</field>
+        <field name="report_file">Inventory Stock Summary Wise pdf</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+    <record id="inv_value_detail_report" model="ir.actions.report">
+        <field name="name">Inventory Valuable Detail</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">inventory_valuation_xlsx.inv_value_detail_template</field>
+        <field name="report_file">Inventory Valuable Detail Xlsx</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+    <record id="inv_value_summary_report" model="ir.actions.report">
+        <field name="name">Inventory Valuable Detail</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">inventory_valuation_xlsx.inv_value_summary_template</field>
+        <field name="report_file">Inventory Valuable Detail Xlsx</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+     <record id="inv_value_summary_report_pdf" model="ir.actions.report">
+        <field name="name">Inventory Valuable Detail Pdf</field>
+        <field name="model">inventory.valuation.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">inventory_valuation_xlsx.inv_value_summary_pdf</field>
+        <field name="report_file">Inventory Valuable Detail Pdf</field>
+        <field name="binding_model_id" ref="inventory_valuation_xlsx.model_inventory_valuation_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+</odoo>

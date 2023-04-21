@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="supplier_movement_wizard_view" model="ir.ui.view">
+            <field name="name">supplier_movement_wizard_view</field>
+            <field name="model">supplier.movement.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="partner_ids" widget="many2many_tags"/>
+                            <field name="name" invisible="1"/>
+                            <field name="file" filename="name" invisible="1" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="date_to"/>
+                            <field name="partner_type"/>
+                            <field name="companies" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Print Xlsx Report" name="generate_supplier_movement_xlsx" type="object"
+                                default_focus="1" class="btn-primary"/>
+
+                        <button string="Print PDF Report" name="generate_supplier_movement_pdf" type="object"
+                                default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="supplier_movement_action" model="ir.actions.act_window">
+            <field name="name">Partner Movement</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">supplier.movement.wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="supplier_movement_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+        <menuitem
+                id="office_root"
+                name="Partner Mov Reports"
+                parent="account.menu_finance"
+                sequence="10"/>
+
+        <menuitem id="supplier_movement_menu" name="Partner Movement" parent="office_root"
+                  action="supplier_movement_action"/>
+    </data>
+</odoo>

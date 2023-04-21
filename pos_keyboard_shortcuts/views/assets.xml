@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_keyboard_shortcuts/static/src/js/TipsButton.js"/>
+                <script type="text/javascript" src="/pos_keyboard_shortcuts/static/src/js/PosShortcutsPopup.js"/>
+                <script type="text/javascript" src="/pos_keyboard_shortcuts/static/src/js/PosProductScreen.js"/>
+                <script type="text/javascript" src="/pos_keyboard_shortcuts/static/src/js/PosShortcuts.js"/>
+            </xpath>
+            <xpath expr="//link[@id='pos-stylesheet']" position="after">
+                <link rel="stylesheet" href="/pos_keyboard_shortcuts/static/src/css/custom_pos.css"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "POS Keyboard Shortcuts",
+    'summary': """Customized Point of Sale Layout and Keyboard Shortcuts""",
+    'description': """Customized Point of Sale Layout and Keyboard Shortcuts""",
+    'version': '14.0.0.2',
+    "category": "Point of Sale",
+    'author': "Altapete Solutions",
+    'website': "http://altapetesolutions.com/",
+    'maintainer': 'Altapete Solutions',
+    'company': 'Altapete Solutions',
+    'license': 'AGPL-3',
+    'depends': ['base', 'point_of_sale', ],
+    'data': ['views/assets.xml', ],
+    'qweb': [
+        'static/src/xml/TipsButton.xml',
+        'static/src/xml/PosShortcutsPopup.xml',
+    ],
+    'demo': [],
+    'images': ['static/description/banner.png'],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'price': 0,
+    'currency': 'PKR',
+}

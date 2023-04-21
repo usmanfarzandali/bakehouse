@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_kitchen" name="vpcs_pos_kitchen assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/db.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/models.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/Chrome.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/ChromeWidgets/TicketButton.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/Screens/ProductScreen/Orderline.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/Screens/ProductScreen/ControlButtons/KitchenScreenButton.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/Screens/TicketScreen/TicketScreen.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/Screens/ProductScreen/ControlButtons/OrderPriorityButton.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/Screens/ProductScreen/ControlButtons/SubmitOrderButton.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/Screens/KitchenScreen/KitchenOrderStateButton.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/Screens/KitchenScreen/KitchenOrder.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/Screens/KitchenScreen/KitchenScreen.js"></script>
+        </xpath>
+        <xpath expr="//link[@id='pos-stylesheet']" position="after">
+            <link rel="stylesheet" href="/vpcs_pos_kitchen/static/src/css/KitchenScreen.css"/>
+        </xpath>
+    </template>
+
+  <template id="assets_backend" name="vpcs_pos_kitchen assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/vpcs_pos_kitchen/static/src/css/Widget/ColorWidget.css"/>
+            <link rel="stylesheet" href="/vpcs_pos_kitchen/static/src/lib/bootstrap-colorpicker/css/bootstrap-colorpicker.css"/>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/lib/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+            <script type="text/javascript" src="/vpcs_pos_kitchen/static/src/js/Widget/ColorWidget.js"></script>
+        </xpath>
+    </template>
+</odoo>

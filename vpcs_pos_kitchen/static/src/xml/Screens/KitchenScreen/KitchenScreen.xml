@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KitchenScreen" owl="1">
+        <div class="kitchen-screen screen" t-att-class="{ oe_hidden: !props.isShown }">
+            <div>
+                <div class="top-content">
+                    <t t-if="!iface_is_kitchen">
+                        <div class="button back" t-on-click="showScreen('ProductScreen')">
+                            <i class="fa fa-angle-double-left fa-fw"></i>
+                            <span class="back_text">Back</span>
+                        </div>
+                    </t>
+                    <div class="top-content-center">
+                        <h1><t t-esc="get_session_name" /></h1>
+                    </div>
+                    <div class="button refresh" t-on-click="_fetchOrders()">
+                        <i class="fa fa-refresh"></i>
+                    </div>
+                </div>
+                <div class="full-content touch-scrollable scrollable-y">
+                    <div class="container-kitchen-orders">
+                        <t t-foreach="orders" t-as="order" t-key="order.uid">
+                            <KitchenOrder order="order" mode="state.mode"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

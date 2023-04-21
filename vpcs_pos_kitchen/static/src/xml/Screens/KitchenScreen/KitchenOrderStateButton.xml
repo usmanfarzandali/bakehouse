@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="KitchenOrderStateButton" owl="1">
+        <div>
+            <button data-state="new" t-att-data-id="props.orderline.id" t-att-data-uid="props.order.uid" t-attf-class="k-state-btn new_state_btn {{highlight_new}}" t-on-click.stop="_ClickOrderlineState(props.order, props.orderline, 'new')">
+                <t t-esc="get_state_name('new')"/>
+            </button>
+            <button data-state="Cooking" t-att-data-id="props.orderline.id" t-att-data-uid="props.order.uid" t-attf-class="k-state-btn cooking_state_btn {{highlight_cooking}}" t-on-click.stop="_ClickOrderlineState(props.order, props.orderline, 'Cooking')">
+                <t t-esc="get_state_name('Cooking')"/>
+            </button>
+            <button data-state="ready to serve" t-att-data-id="props.orderline.id" t-att-data-uid="props.order.uid" t-attf-class="k-state-btn ready_to_serve_state_btn {{highlight_ready_to_serve}}" t-on-click.stop="_ClickOrderlineState(props.order, props.orderline, 'ready to serve')">
+                <t t-esc="get_state_name('ready to serve')"/>
+            </button>
+            <button data-state="done" t-att-data-id="props.orderline.id" t-att-data-uid="props.order.uid" t-attf-class="k-state-btn done_state_btn {{highlight_done}}" t-on-click.stop="_ClickOrderlineState(props.order, props.orderline, 'done')">
+                <t t-esc="get_state_name('done')"/>
+            </button>
+        </div>
+    </t>
+</templates>

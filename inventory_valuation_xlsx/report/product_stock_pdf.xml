@@ -1,0 +1,94 @@
+<odoo>
+    <template id="product_stock_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2 style="text-align:center">Products Stock Report</h2>
+                    <div class="row">
+                        <table class="oe_structure" style="margin-bottom:15px;margin-left:20px;font-size:10px" width="35%">
+                            <tr>
+                                <td style="border:1px solid lightgrey;padding:5px;" width="30%">User</td>
+                                <td style="border:1px solid lightgrey;padding:5px;">
+                                    <t t-esc="Uuser"/>
+                                </td>
+                            </tr>
+                            <t t-if="wizard_data.companies">
+                            <tr>
+                                <td style="border:1px solid lightgrey;padding:5px;">Company</td>
+                                <td style="border:1px solid lightgrey;padding:5px;">
+                                    <t t-foreach="wizard_data.companies" t-as="line">
+                                        <span t-esc="line.name"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            </t>
+                            <tr>
+                                <td style="border:1px solid lightgrey;padding:5px;">Date From</td>
+                                <td style="border:1px solid lightgrey;padding:5px;">
+                                    <t t-esc="wizard_data['date_from']"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid lightgrey;padding:5px;">Date To</td>
+                                <td style="border:1px solid lightgrey;padding:5px;"><t t-esc="wizard_data['date_to']"/></td>
+                            </tr>
+                        </table>
+                        <table width="40%">
+
+                        </table>
+                        <table style="font-size:10px" width="20%">
+                            <tr>
+                                <td style="border:1px solid lightgrey;padding:5px;" >Printed Date</td>
+                                <td style="border:1px solid lightgrey;padding:5px;">
+                                    <t t-esc="DDate"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <br/>
+                    <div class="oe_structure"/>
+
+                    <table style="width:100%;margin:0px auto;background:white;border:1px solid #e1e1e1;"
+                           class="table table-condensed">
+                        <thead >
+
+
+
+                            <tr style="font-size:10px">
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Product</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Opening </th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Closing </th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody class="consumed_tbody" style="font-size:10px">
+                            <t t-foreach="data" t-as="main">
+                                <!--                                <t t-if="main.partner_type == 'customer'">-->
+                                <tr style="text-align: left;">
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['product']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['opening']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['closing']"/>
+                                    </td>
+
+                                </tr>
+                            </t>
+                            <!--                            </t>-->
+                        </tbody>
+
+
+                    </table>
+
+                </div>
+
+            </t>
+
+        </t>
+    </template>
+</odoo>

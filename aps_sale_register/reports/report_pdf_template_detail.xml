@@ -1,0 +1,168 @@
+<odoo>
+    <template id="sale_register_detail_report_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h2 style="text-align:center">Sale Register Report(Detail)</h2>
+                <div class="page">
+                    <br/>
+                    <table class="oe_structure" style="margin-bottom:15px;">
+                        <tr>
+                            <td style="border:1px solid lightgrey;padding:5px;">Date From</td>
+                            <td style="border:1px solid lightgrey;padding:5px;">
+                                <t t-esc="wizard_data['date_from']"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid lightgrey;padding:5px;">Date To</td>
+                            <td style="border:1px solid lightgrey;padding:5px;"><t t-esc="wizard_data['date_to']"/></td>
+                        </tr>
+                        <t t-set="total_sum" t-value="0"/>
+                        <t t-set="total_sum1" t-value="0"/>
+                        <t t-set="total_sum2" t-value="0"/>
+                        <t t-set="total_sum3" t-value="0"/>
+                        <t t-set="total_sum4" t-value="0"/>
+                        <t t-set="total_sum5" t-value="0"/>
+                    </table>
+                    <div class="oe_structure"/>
+                    <table style="width:100%;margin:0px auto;background:white;border:1px solid #e1e1e1;"
+                           class="table table-condensed">
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:26%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <col style="width:7%"/>
+                        <thead>
+                            <tr style="font-size:10px">
+                                <th class="text-center" style="border:1px solid lightgrey;">SR </th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Date</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Invoice No</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">OGP</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">SO#</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Partner</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Sales Person</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">NTN</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Product</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Category</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Label</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">qty</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">price</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Discount</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">tax</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Subtotal</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="consumed_tbody" style="font-size:9px">
+                            <t t-set="serial_counter" t-value="0"/>
+                            <t t-foreach="data" t-as="main">
+                                <!--                                 <t t-if="main.partner_type == 'customer'"> -->
+                                <t t-set="serial_counter" t-value="serial_counter+1"/>
+                                <tr style="text-align: center;">
+                                    <td style="border:1px solid lightgrey;">
+                                        <span>
+                                            <t t-esc="serial_counter"/>
+                                        </span>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['date']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['invoice_no']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['ogp']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['so']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['partner']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['saleperson']"/>
+                                    </td>
+
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['ntn']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['product']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['category']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['label']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['qty']"/>
+                                        <t t-set="total_sum" t-value="total_sum + main['qty']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['price']"/>
+                                        <t t-set="total_sum1" t-value="total_sum1 + main['price']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['discount']"/>
+                                        <!--                                          <t t-set="total_sum2" t-value="total_sum2 + main['discount']"/>-->
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['tax']"/>
+                                        <!--                                         <t t-set="total_sum3" t-value="total_sum3 + int(main['tax'])"/>-->
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['subtotal']"/>
+                                        <t t-set="total_sum4" t-value="total_sum4 + main['subtotal']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['total']"/>
+                                        <t t-set="total_sum5" t-value="total_sum5 + main['total']"/>
+                                    </td>
+                                </tr>
+                                <!--                                                        </t>-->
+                            </t>
+                        </tbody>
+                        <tr style="font-size:10px">
+
+
+                            <td style="padding:5px;border:1px solid lightgrey" colspan="11">
+                                <b>Total</b>
+                            </td>
+                            <td style="padding:5px;border:1px solid lightgrey;text-align:center">
+                                <span t-esc="'{:,}'.format(total_sum)"/>
+                            </td>
+                            <td style="padding:5px;border:1px solid lightgrey;text-align:center">
+                                <span t-esc="'{:,}'.format(total_sum1)"/>
+                            </td>
+                            <td style="padding:5px;border:1px solid lightgrey">
+                                <!--                                        <span t-esc="'{:,}'.format(total_sum2)"/>-->
+                            </td>
+                            <td style="padding:5px;border:1px solid lightgrey">
+                                <!--                                        <span t-esc="'{:,}'.format(total_sum3)"/>-->
+                            </td>
+                            <td style="padding:5px;border:1px solid lightgrey;text-align:center">
+                                <span t-esc="'{:,}'.format(total_sum4)"/>
+                            </td>
+                            <td style="padding:5px;border:1px solid lightgrey;text-align:center">
+                                <span t-esc="'{:,}'.format(total_sum5)"/>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+
+    </template>
+</odoo>

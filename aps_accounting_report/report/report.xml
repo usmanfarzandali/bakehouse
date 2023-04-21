@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="supplier_movement_report" model="ir.actions.report">
+        <field name="name">Supplier Movement Report</field>
+        <field name="model">supplier.movement.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">aps_accounting_report.supplier_movement_template</field>
+        <field name="report_file">Supplier Movement Xlsx</field>
+        <field name="binding_model_id" ref="aps_accounting_report.model_supplier_movement_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+    <record id="partner_ledger_report" model="ir.actions.report">
+        <field name="name">Partner Ledger Report</field>
+        <field name="model">partner.ledger.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">aps_accounting_report.partner_ledger_template</field>
+        <field name="report_file">Partner Ledger Xlsx</field>
+        <field name="binding_model_id" ref="aps_accounting_report.model_partner_ledger_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+
+    <record id="supplier_movement_report_pdf" model="ir.actions.report">
+        <field name="name">Supplier Movement Report PDF</field>
+        <field name="model">supplier.movement.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">aps_accounting_report.report_supplier_id_card</field>
+        <field name="report_file">aps_accounting_report.report_supplier_id_card</field>
+        <field name="binding_model_id" ref="aps_accounting_report.model_supplier_movement_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+    <record id="partner_ledger_report_pdf" model="ir.actions.report">
+        <field name="name">Partner Ledger Report PDF</field>
+        <field name="model">partner.ledger.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">aps_accounting_report.report_student_id_card</field>
+        <field name="report_file">aps_accounting_report.report_student_id_card</field>
+        <field name="binding_model_id" ref="aps_accounting_report.model_partner_ledger_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % (object.date_from)</field>
+    </record>
+
+</odoo>

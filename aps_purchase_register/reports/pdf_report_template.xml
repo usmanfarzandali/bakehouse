@@ -1,0 +1,110 @@
+<odoo>
+    <template id="purchase_register_template_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                 <h2 style="text-align:center">Purchase Register Report(Summary)</h2>
+                <div class="page">
+                    <table class="oe_structure" style="margin-bottom:15px;">
+                        <tr>
+                            <td style="border:1px solid lightgrey;padding:5px;">Date From</td>
+                            <td style="border:1px solid lightgrey;padding:5px;">
+                                <t t-esc="wizard_data['date_from']"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid lightgrey;padding:5px;">Date To</td>
+                            <td style="border:1px solid lightgrey;padding:5px;"><t t-esc="wizard_data['date_to']"/></td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <div class="oe_structure"/>
+                      <t t-set="total_sum" t-value="0"/>
+                    <table style="width:100%;margin:0px auto;background:white;border:1px solid #e1e1e1;"
+                           class="table table-condensed">
+                        <col style="width:7%"/>
+                        <col style="width:9%"/>
+                        <col style="width:10%"/>
+                        <col style="width:10%"/>
+                        <col style="width:8%"/>
+                        <col style="width:8%"/>
+                        <col style="width:8%"/>
+                        <col style="width:9%"/>
+                        <col style="width:14%"/>
+                        <col style="width:8%"/>
+                        <col style="width:8%"/>
+                        <thead>
+                            <tr style="font-size:10px">
+                                <th class="text-center" style="border:1px solid lightgrey;">No</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Date</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Bill No</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">IGP</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">PO#</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Partner</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">NTN</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Discount</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Amount Untaxed</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Tax</th>
+                                <th class="text-center" style="border:1px solid lightgrey;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="consumed_tbody" style="font-size:9px">
+                            <t t-set="serial_counter" t-value="0"/>
+                            <t t-foreach="data" t-as="main">
+                                <!--                                 <t t-if="main.partner_type == 'customer'"> -->
+                                <t t-set="serial_counter" t-value="serial_counter+1"/>
+                                <tr style="text-align: center;">
+                                    <td style="border:1px solid lightgrey;">
+                                        <span>
+                                            <t t-esc="serial_counter"/>
+                                        </span>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['date']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['bill_no']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['igp']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['po']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['partner']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['ntn']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['discount']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['amount_untaxed']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['tax']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;">
+                                        <t t-esc="main['total']"/>
+                                        <t t-set="total_sum" t-value="total_sum + main['total']"/>
+                                    </td>
+                                </tr>
+                                <!--                                                        </t>-->
+                            </t>
+                        </tbody>
+                        <tr style="font-size:10px">
+                            <td style="padding:5px;border:1px solid lightgrey" colspan="10">
+                                <b>Total</b>
+                            </td>
+                            <td style="padding:5px;border:1px solid lightgrey;text-align:center">
+                                <span t-esc="'{:,}'.format(total_sum)"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+
+    </template>
+</odoo>

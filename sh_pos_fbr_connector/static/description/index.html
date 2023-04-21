@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<section id="sh_module_heading">
+<div class="container">
+<div class="sh_center text-center" style='margin: 2rem 0;'>
+<div class="row" style='align-items: center;'>
+<div class="col-lg-4 col-md-4 col-sm-12" style='text-align: left;'>
+<img src='softhealer.png' alt='logo' style="width: 80%;">
+</div>
+<div class="col-lg-8 col-md-8 col-sm-12" style='text-align: right;'>
+
+<span class='btn btn-primary' style="position: relative; overflow: hidden; border: 1px solid transparent; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; border-radius: .25rem; background-color: #007bff;border-color: #007bff;"><i class='fa fa-check' style="margin-right: 9px;"></i>Community</span>
+<span class='btn btn-primary' style="position: relative; overflow: hidden; border: 1px solid transparent; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; border-radius: .25rem; background-color: #007bff;border-color: #007bff;"><i class='fa fa-check' style="margin-right: 9px;"></i>Enterprise</span>
+<span class='btn btn-primary' style="position: relative; overflow: hidden; border: 1px solid transparent; padding: .375rem .75rem; font-size: 1rem; line-height: 1.5; border-radius: .25rem; background-color: #007bff;border-color: #007bff;"><i class='fa fa-check' style="margin-right: 9px;"></i>Odoo.Sh</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- heading  -->
+<section id="sh_module_heading" style="padding-top: 50px;">
+	<div class="container">
+		<div class="sh_center text-center">
+			<h4 style="font-size: 30px;font-weight: 600;color: #212121;margin-bottom: 20px;">POS FBR Connector</h4>
+			<img src="shape.png" style="width: 100px;display: block;text-align: center;margin: auto;margin-bottom: 20px;" />
+			<p style="color: #777;font-size: 18px;margin: 0;letter-spacing: 1px;text-align: left;"> This module will help to send pos order details to the FBR portal, It's auto-send order information to be on payment done from pos and receipt generated, receipt generated with invoice no. which is fetched from FBR Portal, If any issue with FBR portal connection than it will auto resend using a cron job or manually as well from the backend. It will not show invoice no if the FBR Portal connection issue. You can easily filter failed/success sync orders of FBR Portal. It also provides PCT(Pakistan Customs Tariff) code.<br/><br/>
+
+<b>ABOUT FBR:</b>
+
+The Federal Board of Revenue (FBR) formerly known as the Central Board of Revenue (CBR), is a top federal government organization of Pakistan that investigates tax crimes and money-laundering. FBR operates through special Broadening of Tax Base Zones that keep tax evaders under surveillance and perform special tasks for FBR Headquarters. FBR performs the role of collection of taxation in the country from all individuals and businesses. FBR also collects intelligence on tax evasion and administers tax laws for the Government of Pakistan and acts as the central revenue collection agency of Pakistan.
+			</p>
+		</div>
+	</div>
+</section>  
+<section id="sh_module_heading" style="padding-top:50px">
+	<div class="container">
+		<div class="sh_center text-center">
+          <h2 align="center">
+            <a style="background-color:#1976d2; color:white; border-color:#1976d2; padding:1%; text-decoration:none; border-radius:0px; display:inline-block" class="btn btn-success btn-lg" href="https://youtu.be/Xfxdad01KBo?list=PL-zDV7_rrd2p_3CWciRdsT9OX5GXgMqNU" target="_blank"><span class="o_ripple d-block position-absolute rounded-circle" style="height:398px; width:398px"></span>POS FBR Connector Video</a>
+         </h2>
+         <h2 align="center">
+            <a style="background-color:#1976d2; color:white; border-color:#1976d2; padding:1%; text-decoration:none; border-radius:0px; display:inline-block" class="btn btn-success btn-lg" href="https://youtu.be/m6Isu7IpUho?list=PL-zDV7_rrd2p_3CWciRdsT9OX5GXgMqNU" target="_blank"><span class="o_ripple d-block position-absolute rounded-circle" style="height:398px; width:398px"></span>POS FBR Connector - Responsive Video</a>
+         </h2>
+        
+        
+		</div>
+	</div>
+</section>
+
+<section id="sh_feature" style="padding-top: 50px;">
+  <div class="container">
+      <div class="sh_center text-center">
+        <h4 style="font-size: 30px;font-weight: 600;color: #212121;margin-bottom: 20px;">Hot Features</h4>
+        <hr style="width: 100px;border-width: 2px;border-color: #1976d2;" />
+      </div>
+
+      <div class="row">
+       
+       
+        <div class="col-md-4">           
+              <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                 <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+                 <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Sandbox Authentication<img src="hot tag.png" style="max-width:58px; padding-left:10px">
+
+</span>
+              </div>           
+        </div>
+               
+       <div class="col-md-4">           
+              <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                 <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+                 <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Production Authentication<img src="hot tag.png" style="max-width:58px; padding-left:10px">
+
+</span>
+              </div>           
+        </div>
+         <div class="col-md-4">          
+              <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                 <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+                 <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Header-Footer In Receipt<img src="hot tag.png" style="max-width:58px; padding-left:10px">
+</span>
+              </div>           
+        </div>
+         <div class="col-md-4">          
+              <div class="sh_icon" style="border: 1px solid #aaa;padding: 19px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                 <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+                 <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> POS Detail TO FBR
+
+</span>
+              </div>           
+        </div>
+         
+         
+      
+         <div class="col-md-4">          
+              <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                 <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+                 <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Print FBR Receipt
+</span>
+              </div>           
+        </div>
+        
+        <div class="col-md-4">          
+              <div class="sh_icon" style="border: 1px solid #aaa;padding: 20px;margin-bottom: 20px;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                 <span class="fa fa-circle" style="background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;border-radius: 50%;color: #fff;font-size: 16px;"></span>
+                 <span style="color: #212121;font-weight: 600;vertical-align: middle;padding-left: 10px;"> Sync Orders Of FBR Portal
+</span>
+              </div>           
+        </div>
+              
+              
+      </div>
+
+
+
+  </div>
+</section>
+
+
+         <section id="sh_features" style="padding: 50px 0px;">
+            <div class="container">
+                <div class="sh_center text-center" style="margin-bottom: 40px;">
+                    <h4 style="font-size: 30px;font-weight: 600;color: #212121;margin-bottom: 20px;">Features</h4>
+                    <hr style="width: 100px;border-width: 2px;border-color: #1976d2;" />
+                </div>
+                
+                     <ul style="padding: 0;list-style: none;">
+					 <li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;">
+              <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> You can add header-footer in the receipt. <span class="badge badge-danger" style="background-color: #f44336 !important;
+padding: 5px 14px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span>
+          
+          </li>
+
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;">
+				    	<span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> Main configuration added to enable/disable FBR connector. <span class="badge badge-danger" style="background-color: #f44336 !important;
+padding: 5px 14px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span>
+					
+					</li>
+
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;">
+				    	<span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> We provide FBR authentication options sandbox & production. <span class="badge badge-danger" style="background-color: #f44336 !important;
+padding: 5px 14px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span>
+					
+					</li>
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;">
+				    	<span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> Easy to send pos order details to the FBR portal. 
+
+
+
+
+					
+					</li>
+           <li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;">
+              <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> It can also send refund orders to FBR.
+
+
+
+
+          
+          </li>
+ 
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;">
+				    	<span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> You can resend the payment receipt using a cron job or manually as well from the backend.
+					
+					</li>
+
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;">
+				    	<span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> You can print the invoice number with FBR in the report.
+					
+					</li>
+
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;">
+				    	<span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> You can easily filter failed/success sync orders of FBR Portal.
+					
+					</li>
+
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;">
+				    	<span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> No special configuration required, install it, use it.
+					
+					</li>
+
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;">
+				    	<span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> This module saves your important time.
+					
+					</li>
+
+					
+					
+					
+                            
+                        </ul>
+                
+               
+              
+            </div>
+        </section>
+
+
+<section id="sh_tab" style="padding-top: 50px;">
+	<div class="container">
+		<ul class="nav nav-tabs justify-content-center" role="tablist" style="justify-content: center;padding-bottom: 10px;border-bottom: 2px solid #aaa;">
+		    
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link active" data-toggle="tab" href="#Configurations" style="color: #333;border: 2px solid #1c76d2;">Setup</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#Release" style="color: #333;border: 2px solid #1c76d2;">Releases</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#FAQ" style="color: #333;border: 2px solid #1c76d2;">FAQs</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#Support" style="color: #333;border: 2px solid #1c76d2;">Support</a>
+		    </li>
+		</ul>
+
+
+
+		<div class="tab-content" style="margin-top: 30px;">
+
+		    <!-- tab 1 -->
+		   
+
+
+		    <!-- tab 2 -->
+		    <div id="Configurations" class="tab-pane active">
+		    		
+                <section id="sh_configuration">
+                  <div class="container">
+                     <div class="text-center">
+
+                      <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> "Enable FBR Connector" to get FBR feature, configure FBR authentication, header authorization, POS ID & logo.
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="1.png" style="width: 100%;" />
+  </div><br/>
+  <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> Set CNIC & NTN number of customers.
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="2.png" style="width: 100%;" />
+  </div><br/>
+  <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> Choose payment method.
+ 
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="3.png" style="width: 100%;" />
+  </div><br/>
+  <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> Set STRN/NTN number of the company.
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="4.png" style="width: 100%;" />
+  </div><br/>
+  <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> In products, you can set PCT (Pakistan Customs Tariff) code.
+ 
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="5.png" style="width: 100%;" />
+  </div><br/>
+  <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> Generated receipt looks like this.
+ 
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="6.png" style="width: 100%;" />
+  </div><br/>
+   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> You can add header-footer in receipt.
+ 
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="s1.png" style="width: 100%;" />
+  </div><br/>
+
+  <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> Generated receipt looks like this.
+ 
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="s2.png" style="width: 100%;" />
+  </div><br/>
+  <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> Suppose any connection issue with the FBR portal. The transaction fails then it posts in the FBR portal than you can auto manage using a cronjob.
+ 
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="7.png" style="width: 100%;" />
+  </div><br/>
+  <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> Suppose any connection issue with the FBR portal. The transaction fails then it posts in the FBR portal than you can manage POS order to FBR using"Multi-Action".
+ 
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="8.png" style="width: 100%;" />
+  </div><br/>
+  <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> You can schedule failed FBR manually or using a cron job by the scheduler.
+ 
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="9.png" style="width: 100%;" />
+  </div><br/>
+  <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;text-align: center;"> You can track posted entries from the FBR log menu.
+ 
+                         </p>
+                         <div class="col-md-12">
+    <img class="img-responsive" src="nw.png" style="width: 100%;" />
+  </div>
+ 
+  </div>
+                  </div>
+                 </section>
+
+		      </div>
+		    <!-- tab 2 -->
+
+		    <!-- tab 3 -->
+		    <div id="Release" class="tab-pane fade">
+		    	   <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">             
+              <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.10</span> | <span style="color: #1976d2;">Released on : 18<sup>th</sup>July 2022</span></h4>
+              <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+                 <li><span class="badge badge-info" style="background: #2196F3;
+padding: 5px 15px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">Fixed</span> Offline Mode Order Issue Fixed.</li>              
+              </ul> 
+            </div>  
+           <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">             
+              <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.9</span> | <span style="color: #1976d2;">Released on : 1<sup>st</sup> January 2022</span></h4>
+              <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+                 <li><span class="badge badge-info" style="background: #2196F3;
+padding: 5px 15px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">Fixed</span> Minor Bug Fixed.</li>              
+              </ul> 
+            </div>  
+           <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">             
+              <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.8</span> | <span style="color: #1976d2;">Released on : 29<sup>th</sup> December 2021</span></h4>
+              <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+                 <li><span class="badge badge-info" style="background: #2196F3;
+padding: 5px 15px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">Fixed</span> Minor Bug Fixed.</li>              
+              </ul> 
+            </div>  
+          <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">             
+              <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.7</span> | <span style="color: #1976d2;">Released on : 20<sup>th</sup> December 2021</span></h4>
+              <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+                 <li><span class="badge badge-info" style="background: #2196F3;
+padding: 5px 15px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">Fixed</span> Minor Bug Fixed.</li>              
+              </ul> 
+            </div>  
+           <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">             
+              <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.6</span> | <span style="color: #1976d2;">Released on : 9<sup>th</sup> December 2021</span></h4>
+              <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+                 <li><span class="badge badge-success" style="background-color: #43A047 !important;
+padding: 5px 17px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span> FBR Log Menu Added To Track Posted Entries.</li>  
+            
+              </ul> 
+            </div>      
+           <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">             
+              <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.5</span> | <span style="color: #1976d2;">Released on : 1<sup>st</sup> December 2021</span></h4>
+              <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+                 <li><span class="badge badge-info" style="background: #2196F3;
+padding: 5px 15px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">Fixed</span> Minor Bug Fixed.</li>              
+              </ul> 
+            </div>  
+            <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">             
+              <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.4</span> | <span style="color: #1976d2;">Released on : 19<sup>th</sup> November 2021</span></h4>
+              <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+                 <li><span class="badge badge-warning" style="background: #FF9800;
+padding: 5px 10px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">Update</span> Service Fee Part Included.</li>  
+            
+              </ul> 
+            </div>     
+           <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">             
+              <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.3</span> | <span style="color: #1976d2;">Released on : 21 September 2021</span></h4>
+              <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+                 <li><span class="badge badge-success" style="background-color: #43A047 !important;
+padding: 5px 17px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span> Header-Footer Added In Receipt</li>  
+            
+              </ul> 
+            </div>      
+		      <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">		        	
+			        <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.2</span> | <span style="color: #1976d2;">Released on : 11 September 2021</span></h4>
+			        <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+			           <li><span class="badge badge-success" style="background-color: #43A047 !important;
+padding: 5px 17px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span> Configuration Added To Enable/Disable FBR Connector</li>	
+			           <li><span class="badge badge-success" style="background-color: #43A047 !important;
+padding: 5px 17px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span> Added FBR Authentication Options (Sandbox & Production)</li>	
+			           <li><span class="badge badge-warning" style="background: #FF9800;
+padding: 5px 10px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">Update</span> Receipt Design Updated According To FBR Receipt</li>			         
+			        </ul>	
+		        </div>			        
+		        <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">		        	
+			        <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.1</span> | <span style="color: #1976d2;">Released on : 21 October 2020</span></h4>
+			        <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+			           <li>Initial Release.</li>			         
+			        </ul>	
+		        </div>	        
+		    </div>
+		    <!-- tab 3 -->
+
+		    <!-- tab 4 -->
+		    <div id="FAQ" class="tab-pane fade">
+		       <div class="demo">
+				    <div class="panel-group" id="accordion" role="tablist">
+				       
+				        
+				          
+
+				        <div class="panel panel-default" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+				            <div class="panel-heading" role="tab" id="headingThree" style="border: 0;padding: 0;">
+				                <h4 class="panel-title" style="margin: 0;">
+				                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: flex;">
+				                        <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span>
+				                        I want some customization in this app. How can I request it?
+				                       
+				                    </a>
+				                </h4>
+				            </div>
+				            <div id="collapseThree3" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingThree">
+				                <div class="panel-body" style="padding-top: 20px;">
+				                    <ul style="list-style-type: disc;font-size: 16px;padding-left: 30px;color: #555;margin: 0;">
+				                    	<li style="margin-bottom: 5px;">Please Contact Us at <a href='mailto:sales@softhealer.com' style="color: #007bff;font-weight: 600;text-decoration: none;">sales@softhealer.com</a>to request customization.</li>
+				                    </ul>
+				                </div>
+				            </div>
+				        </div>
+				         
+						    
+						<div class="panel panel-default" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+<div class="panel-heading" role="tab" id="headingThree" style="border: 0;padding: 0;">
+<h4 class="panel-title" style="margin: 0;">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: flex;">
+<span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span>
+Do i get free support?
+
+</a>
+</h4>
+</div>
+<div id="collapseThree3" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingThree">
+<div class="panel-body" style="padding-top: 20px;">
+<ul style="list-style-type: disc;font-size: 16px;padding-left: 30px;color: #555;margin: 0;">
+<li style="margin-bottom: 5px;">Yes, we provide free support for 90 days.</li>
+</ul>
+</div>
+</div>
+</div>
+
+				        
+				    </div>
+				</div>
+		    </div>
+		    <!-- tab 4 -->
+
+		    <!-- tab 5 -->
+		    <div id="Support" class="tab-pane fade">
+		        <div class="row">
+		           <div class="col-md">
+		              <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+		                  <h4><a href="mailto:support@softhealer.com" style="text-decoration: none;color: #212121;font-size: 18px;font-weight: 600;letter-spacing: 1px;"><span class="fa fa-envelope" style="color: #1976d2;padding-right: 10px;font-size: 20px;"></span> Please mail us for support on <b style="color: #1976D2">support@softhealer.com</b></a></h4>
+						
+		              </div>
+		           </div>
+
+		         
+		        </div>	        
+		    </div>
+		    <!-- tab 5 -->
+
+		</div>
+	</div>
+</section>
+
+<section id="sh_like_module" style="margin: 50px 0;">
+	<div class="container">
+	    <div class="sh_center text-center">
+	   		<h4 style="font-size: 30px;font-weight: 600;color: #212121;margin-bottom: 20px;">You May Also Like</h4>
+	    	<hr style="width: 100px;border-width: 2px;border-color: #1976d2;" />
+	    </div>			   
+		<div class="row">
+            <div class="col-md-4" style="margin-top:1rem;">
+                <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                   <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                       	<a href="https://apps.odoo.com/apps/modules/14.0/sh_office365_connector/">	
+                       		<img src="all_connector.png" style="width: 100%;height: 200px;object-fit: contain;"></img>
+                        </a>
+                   </div>
+                </div>
+            </div>
+            
+             <div class="col-md-4" style="margin-top:1rem;">
+                <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                   <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                       	<a href="https://apps.odoo.com/apps/modules/14.0/sh_salesforce_connector/">	
+                       		<img src="sf.png" style="width: 100%;height: 200px;object-fit: contain;"></img>
+                        </a>
+                   </div>
+                </div>
+            </div>
+	         <div class="col-md-4" style="margin-top:1rem;">
+                <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                   <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                       	<a href="https://apps.odoo.com/apps/modules/14.0/sh_trello_connector/">	
+                       		<img src="trello.png" style="width: 100%;height: 200px;object-fit: contain;"></img>
+                        </a>
+                   </div>
+                </div>
+            </div>
+             <div class="col-md-4" style="margin-top:1rem;">
+                <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                   <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                       	<a href="https://apps.odoo.com/apps/modules/14.0/sh_xero_connector/">	
+                       		<img src="0.png" style="width: 100%;height: 200px;object-fit: contain;"></img>
+                        </a>
+                   </div>
+                </div>
+            </div>
+             <div class="col-md-4" style="margin-top:1rem;">
+                <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                   <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                       	<a href="https://apps.odoo.com/apps/modules/14.0/sh_hubspot_connector/">	
+                       		<img src="Hubspot.png" style="width: 100%;height: 200px;object-fit: contain;"></img>
+                        </a>
+                   </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-top:1rem;">
+                <div class="sh_content" style="text-align: center;border: 1px solid #aaa;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);">
+                   <div class="sh_img" style="padding: 10px;border-bottom: 1px solid #aaa;">
+                       	<a href="https://apps.odoo.com/apps/modules/14.0/sh_zoho_connector/">	
+                       		<img src="Zoho.png" style="width: 100%;height: 200px;object-fit: contain;"></img>
+                        </a>
+                   </div>
+                </div>
+            </div>
+	    </div>
+	</div>
+    <div class="col-12 text-center mt-5">
+        <a class="btn btn-lg btn-primary" href="https://apps.odoo.com/apps/modules/browse?search=softhealer" style="position: relative; overflow: hidden;">Other Apps</a>
+        <a class="btn btn-lg btn-primary" href="https://apps.odoo.com/apps/themes/browse?search=softhealer" style="position: relative; overflow: hidden;">Other Themes</a>
+    </div>  
+</section>
+</body>
+</html>

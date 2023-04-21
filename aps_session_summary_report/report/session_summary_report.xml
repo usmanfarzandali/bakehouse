@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_session_summary">
+
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+
+                <div class="page">
+                    <h2 style="text-align:center">Pos Report</h2>
+                    <h5 style="text-align:center">
+                        From: <t t-esc="date_from"/> - To: <t t-esc="date_to"/>
+                    </h5>
+                    <table style="text-align:center;width=100%;font-size:12px;margin-top:auto;margin-bottom:auto" >
+
+                        <col width='4%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+                        <col width='6%' />
+
+                        <tr  style="border-style: solid;">
+                            <th style="border-style: solid;" rowspan="2">Sr. #</th>
+                            <th style="border-style: solid;" rowspan="2">POS Name</th>
+                            <th style="border-style: solid;" rowspan="2">POS Session</th>
+                            <th style="border-style: solid;" rowspan="2">Opened By</th>
+                            <th style="border-style: solid;" rowspan="2">Closed By</th>
+                            <th style="border-style: solid;" colspan="3">Sales</th>
+                            <th style="border-style: solid;" colspan="3">Sales Return</th>
+                            <th style="border-style: solid;" colspan="4">Net Sales</th>
+                            <th style="border-style: solid;" rowspan="2">Cash Deposited</th>
+                            <th style="border-style: solid;" rowspan="2">(Short)/Excess</th>
+                        </tr>
+                        <tr style="border-style: solid;">
+                            <td style="border-style: solid;">No. of Order</td>
+                            <td style="border-style: solid;">Cash</td>
+                            <td style="border-style: solid;">Credit</td>
+                            <td style="border-style: solid;">No. of Order</td>
+                            <td style="border-style: solid;">Cash</td>
+                            <td style="border-style: solid;">Credit</td>
+                            <td style="border-style: solid;">No. of Order</td>
+                            <td style="border-style: solid;">Cash</td>
+                            <td style="border-style: solid;">Credit</td>
+                            <td style="border-style: solid;">Total</td>
+                        </tr>
+
+                        <t t-set="serial_counter" t-value="0"/>
+                        <t t-foreach="sessions" t-as="line">
+                            <tr>
+                                <t t-set="serial_counter" t-value="serial_counter+1"/>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="serial_counter"/>
+                                </td>
+                                 <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['config_id']"/>
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['session_name']"/>
+                                </td>
+                                 <td style="border:1px solid black;text-align:center;">
+                                     <t t-esc="line['opened_by']"/>
+                                </td>
+                                 <td style="border:1px solid black;text-align:center;">
+                                     <t t-esc="line['closed_by']"/>
+                                </td>
+                                 <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['sales_order_count']"/>
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['sale_cash_payment']" t-options="{'widget': 'float', 'precision': 1}" />
+                                </td>
+                                 <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['sale_card_payment']" t-options="{'widget': 'float', 'precision': 1}"/>
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['sales_return_count']"/>
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['sales_return_payments']" t-options="{'widget': 'float', 'precision': 1}"/>
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+<!--                                    <t t-esc=""/>-->
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['net_sale_count']" />
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['net_cash_sales']" t-options="{'widget': 'float', 'precision': 1}" />
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['sale_card_payment']" t-options="{'widget': 'float', 'precision': 1}" />
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['net_sale_payments']" t-options="{'widget': 'float', 'precision': 1}" />
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['cash_deposited']" t-options="{'widget': 'float', 'precision': 1}" />
+                                </td>
+                                <td style="border:1px solid black;text-align:center;">
+                                    <t t-esc="line['short_excess']" t-options="{'widget': 'float', 'precision': 1}" />
+                                </td>
+                            </tr>
+                        </t>
+
+                    </table>
+                </div>
+
+            </t>
+        </t>
+
+    </template>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="sale_order_form" model="ir.ui.view">
+        <field name="name">sale_order_form</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="model">sale.order</field>
+        <field type="xml" name="arch">
+
+            <xpath expr="//button[@name='action_confirm']" position="after">
+                <button name="action_confirm_manager" string="Confirm Manager" type="object" class="oe_highlight"
+                        attrs="{'invisible': [('state', 'not in', ['sale_manager'])]}" groups="aps_sale_approval.group_sale_manager"/>
+                <button name="action_confirm_admin" string="Confirm Admin" type="object" class="oe_highlight"
+                        attrs="{'invisible': [('state', 'not in', ['admin'])]}" groups="aps_sale_approval.group_sale_administrator"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

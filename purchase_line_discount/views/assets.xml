@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="many2many_btn assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/purchase_line_discount/static/src/js/purchase_order_view.js"></script>
+                  <script type="text/javascript" src="/purchase_line_discount/static/src/js/product_discount_widget.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

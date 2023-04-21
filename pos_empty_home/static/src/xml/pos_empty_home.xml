@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.ProductList" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('product-list-empty')]" position="after">
+            <p t-if="props.products.length == 0 &amp;&amp; (!props.category || props.category.id == 0)">
+                To select a product, please scan a barcode or search products by category or by name
+            </p>
+        </xpath>
+    </t>
+
+    <t t-inherit="point_of_sale.ProductsWidgetControlPanel" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('rightpane-header')]" position="replace">
+            <div class="rightpane-header" t-att-class="{ 'green-border-bottom': !env.pos.config.iface_display_categ_images, 'grey-border-bottom': env.pos.config.iface_display_categ_images, }">
+                <!-- Breadcrumbs -->
+                <div class="breadcrumbs">
+                    <HomeCategoryBreadcrumb subcategories="props.subcategories" currentCat="props.breadcrumbs[props.breadcrumbs.length - 1]"/>
+                    <t t-if="!env.isMobile">
+                        <t t-foreach="props.breadcrumbs" t-as="category" t-key="category.id">
+                            <CategoryBreadcrumb category="category" />
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

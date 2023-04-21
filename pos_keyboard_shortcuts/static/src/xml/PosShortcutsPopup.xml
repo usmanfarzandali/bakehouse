@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="PosShortcutsPopup" owl="1">
+        <div role="dialog" class="modal-dialog modal-dialog-shortcut-tips">
+            <div class="popup popup-shortcut-tips" style="width: 60%; height: 550px; background-color: #7bcedb; border-radius: 20px;">
+                <header class="title" style="font-size: 22px; border-radius: 20px 20px 0 0; background-color: #333; color: #fff;">
+                    Shortcut Tips
+                </header>
+                <div class="body" style="height:70%; overflow-y:scroll; padding: 10px;"  id="style-2">
+                        <h4 style="margin: 0;">Important Instruction(<i class="fa fa-info-circle fa-spin"/>):</h4>
+                        <div style="width:100%; text-align:center; margin: 0;">
+<pre><ol class="paragraphTip" style="text-align:left; margin: 0; font-size:13px; color:red;"><li>Press <b>"F2"</b> button to get shortcut help.</li></ol></pre>
+<!--    <li>Cursor will be default focused on product search-->
+<!--    panel when POS Home Screen (Product Screen)-->
+<!--    will be opened.</li><li>In this time keyboard shortcut keyswon't work-->
+<!--    except <b>"Tab"</b> and <b>"F2"</b>shortcut buttons.</li><li>Now, search product and press <b>"Tab"</b> button-->
+<!--    to switch focus on product selection.-->
+<!--    Then all keyboard shortcut keys will work.</li>-->
+                        </div>
+                    <h3>Product/Home Screen</h3>
+                    <table class="shortcut-tips-table">
+                        <tr width="50%">
+                            <th>Shortcut Key</th><th>Action Description</th>
+                        </tr>
+                        <tr><td width="30%">F2</td><td width="70%">Sortcut Tips</td></tr>
+                        <tr><td>S</td><td>Product search</td></tr>
+                        <tr><td>Arrow Right</td><td>Change product selection to right direction</td></tr>
+                        <tr><td>Arrow Left</td><td>Change product selection to left direction</td></tr>
+                        <tr><td>Enter</td><td>Set a selected Product in the Order-line</td></tr>
+                        <tr><td>Q</td><td>Numeric pad "Qty" button select to change product line quantity</td></tr>
+                        <tr><td>D</td><td>Numeric pad "Disc" button select to change product line discount</td></tr>
+                        <tr><td>P</td><td>Numeric pad "Price" button select to change product line price</td></tr>
+                        <tr><td>Backspace</td><td>Delete last number for "Qty", "Disc" and "Price"</td></tr>
+                        <tr><td>0-9(Numpad)</td><td>Change number for "Qty", "Disc" and "Price"</td></tr>
+                        <tr><td>. (Numpad)</td><td>Point for numbers</td></tr>
+                        <tr><td>- (Numpad)</td><td>Switch number to negetive or positive</td></tr>
+                        <tr><td>C</td><td>Open customer screen</td></tr>
+                        <tr><td>Spacebar</td><td>Open payment screen</td></tr>
+                        <tr><td>Delete</td><td>Delete selected order line from cart</td></tr>
+                        <tr><td>L</td><td>Delete all Orders from cart</td></tr>
+                        <tr><td>Arrow Up</td><td>Change selection of cart order line to up direction</td></tr>
+                        <tr><td>Arrow Down</td><td>Change selection of cart order line to down direction</td></tr>
+                    </table>
+
+                    <h3 style="margin-top:40px;">Customer Screen</h3>
+                    <table class="shortcut-tips-table">
+                        <tr width="50%">
+                            <th>Shortcut Key</th><th>Action Description</th>
+                        </tr>
+                        <tr><td width="30%">Esc</td><td width="70%">Back to previous screen</td></tr>
+                        <tr><td>S</td><td>Customer search</td></tr>
+                        <tr><td>N</td><td>Open new customer add form</td></tr>
+                        <tr><td>E</td><td>Open customer edit form</td></tr>
+                        <tr><td>Arrow Up</td><td>Change selection of customer to up direction</td></tr>
+                        <tr><td>Arrow Down</td><td>Change selection of customer to down direction</td></tr>
+                        <tr><td>Enter</td><td>Set selected customer</td></tr>
+                    </table>
+
+                    <h3 style="margin-top:40px;">Payment Screen</h3>
+                    <table class="shortcut-tips-table">
+                        <tr width="50%">
+                            <th>Shortcut Key</th><th>Action Description</th>
+                        </tr>
+                        <tr><td width="30%">Esc</td><td width="70%">Back to previous screen</td></tr>
+                        <tr><td>C</td><td>Open customer screen</td></tr>
+                        <tr><td>I</td><td>Select invoice to print invoice on receipt screen</td></tr>
+                        <tr><td>Page Up</td><td>Change payment method selection to up direction</td></tr>
+                        <tr><td>Page Down</td><td>Change payment method selection to down direction</td></tr>
+                        <tr><td>Spacebar</td><td>Choose selected payment method</td></tr>
+                        <tr><td>Arrow Up</td><td>Change payment line selection to up direction</td></tr>
+                        <tr><td>Arrow Down</td><td>Change payment line selection to down direction</td></tr>
+                        <tr><td>Delete</td><td>Delete selected payment line</td></tr>
+                        <tr><td>Enter</td><td>Payment Process Validated</td></tr>
+                    </table>
+
+                    <h3 style="margin-top:40px;">Receipt Screen</h3>
+                    <table class="shortcut-tips-table">
+                        <tr width="50%">
+                            <th>Shortcut Key</th><th>Action Description</th>
+                        </tr>
+                        <tr><td width="30%">I</td><td width="70%">Send Receipt by Email</td></tr>
+                        <tr><td>R</td><td>Print POS receipt</td></tr>
+                        <tr><td>Enter</td><td>Back to Home/POS screen</td></tr>
+                    </table>
+
+                    <h3 style="margin-top:40px;">Shortcut Tips Modal</h3>
+                    <table class="shortcut-tips-table">
+                        <tr width="50%">
+                            <th>Shortcut Key</th><th>Action Description</th>
+                        </tr>
+                        <tr><td width="30%">Esc</td><td width="70%">Close popup modal</td></tr>
+                    </table>
+                </div>
+               <div class="footer"
+                    style="border-radius: 0 0 20px 20px; background-color: #333; color: #fff; padding-bottom: 6px;">
+                   <div class="button cancel" t-on-click="confirm" id="cancel">
+                       <t t-esc="props.cancelText" />
+                   </div>
+               </div>
+            </div>
+       </div>
+    </t>
+</templates>

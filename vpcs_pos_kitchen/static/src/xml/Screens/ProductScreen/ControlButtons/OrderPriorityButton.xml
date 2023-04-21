@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="OrderPriorityButton" owl="1">
+        <select class="control-button js_order_priority" name="order_priority"  t-on-change="captureChange" t-att-value="orderPriority">
+            <option t-att-selected="currentOrder.get_priority() ? (('low' === currentOrder.get_priority()) ? true : undefined) : undefined" value="low">Low</option>
+            <option t-att-selected="currentOrder.get_priority() ? (('normal' === currentOrder.get_priority()) ? true : undefined) : true" value="normal">Normal</option>
+            <option t-att-selected="currentOrder.get_priority() ? (('high' === currentOrder.get_priority()) ? true : undefined) : undefined" value="high">High</option>
+        </select>
+    </t>
+
+</templates>

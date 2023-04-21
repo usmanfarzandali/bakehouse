@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inventory_valuation_wizard_view" model="ir.ui.view">
+            <field name="name">inventory_valuation_wizard_view</field>
+            <field name="model">inventory.valuation.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="oe_title">
+                        <field name="inventory_type" options="{'horizontal': true}" class="oe_edit_only" widget="radio"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="product_id" attrs="{'invisible': [('inventory_type', '=', 'prod_stock')]}"/>
+                            <field name="location_ids" widget="many2many_tags" attrs="{'invisible': [('inventory_type', 'in', ('detail','summary','prod_stock'))]}"/>
+                            <field name="name" invisible="1" />
+                            <field name="file" filename="name" invisible="1"  readonly="1" />
+                        </group>
+                        <group>
+                            <field name="date_to"/>
+                            <field name="categ_ids" widget="many2many_tags" attrs="{'invisible': [('inventory_type', '=', 'prod_stock')]}"/>
+                            <field name="companies" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <footer>
+<!--                        <button string="Detail Report" name="generate_inventory_valuation_xlsx" type="object"-->
+<!--                                default_focus="1" class="btn-primary" attrs="{'invisible': [('inventory_type', '!=', 'detail')]}"/>-->
+<!--                        <button string="Summary Report" name="generate_inventory_summary_valuation_xlsx" type="object"-->
+<!--                                default_focus="1" class="btn-primary" attrs="{'invisible': [('inventory_type', '!=', 'summary')]}"/>-->
+<!--                      <button string="Summary Report pdf" name="generate_inventory_summary_valuation_pdf" type="object"-->
+<!--                                default_focus="1" class="btn-primary" attrs="{'invisible': [('inventory_type', '!=', 'summary')]}"/>-->
+                        <button string="Product Stock Report" name="generate_product_stock_xlsx" type="object"
+                                default_focus="1" class="btn-primary" attrs="{'invisible': [('inventory_type', '!=', 'prod_stock')]}"/>
+                         <button string="Product Stock Report Pdf" name="generate_product_stock_pdf" type="object"
+                                default_focus="1" class="btn-primary" attrs="{'invisible': [('inventory_type', '!=', 'prod_stock')]}"/>
+                        <button string="Location Wise Report" name="generate_location_wise_xlsx" type="object"
+                                default_focus="1" class="btn-primary"  attrs="{'invisible': [('inventory_type', '!=', 'location_wise')]}"/>
+                        <button string="Location Wise Report Pdf" name="generate_location_wise_pdf" type="object"
+                                default_focus="1" class="btn-primary"  attrs="{'invisible': [('inventory_type', '!=', 'location_wise')]}"/>
+<!--                        <button string="Stock Wise Report" name="generate_stock_wise_xlsx" type="object"-->
+<!--                                default_focus="1" class="btn-primary"  attrs="{'invisible': [('inventory_type', '!=', 'stock_wise')]}"/>-->
+                        <button string="Stock Summary Report" name="generate_stock_summary_xlsx" type="object"
+                                default_focus="1" class="btn-primary"  attrs="{'invisible': [('inventory_type', '!=', 'stock_summary')]}"/>
+                        <button string="Stock Summary Report Pdf" name="generate_stock_summary_pdf" type="object"
+                                default_focus="1" class="btn-primary"  attrs="{'invisible': [('inventory_type', '!=', 'stock_summary')]}"/>
+<!--                        <button string="Stock Valuation Report" name="generate_stock_valuation_xlsx" type="object"-->
+<!--                                default_focus="1" class="btn-primary"  attrs="{'invisible': [('inventory_type', '!=', 'stock_valuation')]}"/>-->
+                        <button string="Stock Valuation Report" name="generate_valuation_summary_xlsx" type="object"
+                                default_focus="1" class="btn-primary"  attrs="{'invisible': [('inventory_type', '!=', 'valuation_summary')]}"/>
+                        <button string="Stock Valuation Report Pdf" name="generate_valuation_summary_pdf" type="object"
+                                default_focus="1" class="btn-primary"  attrs="{'invisible': [('inventory_type', '!=', 'valuation_summary')]}"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="inventory_valuation_action" model="ir.actions.act_window">
+            <field name="name">Inventory OPSI</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">inventory.valuation.wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="inventory_valuation_wizard_view" />
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="inventory_valuation_menu" name="Inventory OPSI" parent="stock.menu_warehouse_report"
+                  action="inventory_valuation_action"/>
+    </data>
+</odoo>

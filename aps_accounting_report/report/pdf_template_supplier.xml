@@ -1,0 +1,116 @@
+<odoo>
+    <template id="report_supplier_id_card">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2 style="text-align:center">Partner Movement Report</h2>
+                    <div class="row">
+                        <table class="oe_structure" style="margin-bottom:15px;margin-left:20px">
+                            <tr>
+                                <td style="border:1px solid lightgrey;padding:5px;">User</td>
+                                <td style="border:1px solid lightgrey;padding:5px;">
+                                    <t t-esc="Uuser"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid lightgrey;padding:5px;">Company</td>
+                                <td style="border:1px solid lightgrey;padding:5px;">
+                                    <t t-foreach="wizard_data.companies" t-as="line">
+                                    <span t-esc="line.name"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid lightgrey;padding:5px;">Date From</td>
+                                <td style="border:1px solid lightgrey;padding:5px;">
+                                    <t t-esc="wizard_data['date_from']"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid lightgrey;padding:5px;">Date To</td>
+                                <td style="border:1px solid lightgrey;padding:5px;"><t t-esc="wizard_data['date_to']"/></td>
+                            </tr>
+                        </table>
+                        <table style="margin-left:320px">
+                            <tr>
+                                <td style="border:1px solid lightgrey;padding:5px;">Printed Date</td>
+                                <td style="border:1px solid lightgrey;padding:5px;">
+                                    <t t-esc="DDate"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <br/>
+                    <div class="oe_structure"/>
+
+                    <table style="width:100%;margin:0px auto;background:white;border:1px solid #e1e1e1;"
+                           class="table table-condensed">
+                        <thead>
+
+
+
+                            <tr style="font-size:10px">
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Partner Name</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Opening balance</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Sale</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">S.Return</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Debit Note</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Collection</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Purchase</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">P.Return</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Credit Note</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Payment</th>
+                                <th class="text-center" style="border:1px solid lightgrey;padding:5px;">Closing Balance</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody class="consumed_tbody" style="font-size:10px">
+                            <t t-foreach="data" t-as="main">
+                                <!--                                <t t-if="main.partner_type == 'customer'">-->
+                                <tr style="text-align: center;">
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['partner_name']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['opening_balance']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['sale']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['s_return']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['debit_note']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['collection']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['purchase']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['p_return']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['credit_note']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['payment']"/>
+                                    </td>
+                                    <td style="border:1px solid lightgrey;padding:5px;">
+                                        <t t-esc="main['closing_balance']"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <!--                            </t>-->
+                        </tbody>
+
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

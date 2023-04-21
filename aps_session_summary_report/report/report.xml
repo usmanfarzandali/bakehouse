@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<odoo>
+<!--    <record id="custom_paperformat_id" model="report.paperformat">-->
+<!--    <field name="name">Custom Paper Format</field>-->
+<!--    <field name="default" eval="True"/>-->
+<!--    <field name="format">custom</field>-->
+<!--&lt;!&ndash;    <field name="page_height">297</field>&ndash;&gt;-->
+<!--    <field name="page_width">100%</field>-->
+<!--    <field name="orientation">Landscape</field>-->
+<!--    <field name="margin_top">15</field>-->
+<!--    <field name="margin_bottom">10</field>-->
+<!--    <field name="margin_left">10</field>-->
+<!--    <field name="margin_right">10</field>-->
+<!--    <field name="header_line" eval="False"/>-->
+<!--    <field name="header_spacing">25</field>-->
+<!--    <field name="dpi">90</field>-->
+<!--</record>-->
+     <record id="session_summary_report_pdf" model="ir.actions.report">
+        <field name="name">Session Summary Report </field>
+        <field name="model">session.summary.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">aps_session_summary_report.report_session_summary</field>
+        <field name="report_file">aps_session_summary_report.report_session_summary</field>
+        <field name="binding_model_id" ref="aps_session_summary_report.model_session_summary_wizard"/>
+        <field name="binding_type">report</field>
+<!--            <field name="paperformat_id" ref="custom_paperformat_id"/>-->
+    </record>
+</odoo>

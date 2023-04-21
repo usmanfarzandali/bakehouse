@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+{
+    'name':  'POS Session Thermal Receipt',
+    'summary': """PDF Session Report with Receipt Format""",
+    'description': """PDF Session Report with Receipt Format""",
+    'sequence': -100,
+    'version': '14.0.2.0.7',
+    "category": "Point of Sale",
+    'author': "Altapete Solutions",
+    'website': "http://altapetesolutions.com/",
+    'maintainer': 'Altapete Solutions',
+    'company': 'Altapete Solutions',
+    'license': 'AGPL-3',
+    'depends': [
+        'point_of_sale',
+    ],
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'wizard/w_report_view.xml',
+    ],
+    'qweb': [],
+    'demo': [],
+    'images': ['static/description/banner.png'],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'price': 0,
+    'currency': 'PKR',
+}

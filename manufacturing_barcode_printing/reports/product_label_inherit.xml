@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id ="product_label_pdf" >
+        <t t-call="web.basic_layout">
+            <div class="page" style="font-size:9px;" >
+                <t t-set="uom_categ_unit" t-value="env.ref('uom.product_uom_categ_unit')"/>
+                <t t-foreach="docs" t-as="production" >
+                    <t t-foreach="production.move_finished_ids" t-as="move">
+                        <t t-if="production.state == 'done'">
+                            <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda x: x.state == 'done' and x.qty_done)"/>
+                        </t>
+                        <t t-else="">
+                            <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda x: x.state != 'done' and x.product_qty)"/>
+                        </t>
+                        <t t-foreach="move_lines" t-as="move_line">
+                            <t t-if="move_line.product_uom_id.category_id == uom_categ_unit">
+                                <t t-set="qty" t-value="int(move_line.qty_done)"/>
+                            </t>
+                            <t t-else="">
+                                <t t-set="qty" t-value="1"/>
+                            </t>
+                            <!--                        <t t-foreach="range(qty)" t-as="item">-->
+                            <!--                            <t t-translation="off">-->
+                            <div style="width: 100%;text-align:center">
+                                <table  t-if="production.move_finished_ids" style="text-align:center;margin-left:auto;margin-right:auto" align="center">
+                                    <tr >
+                                        <th style="text-align:center;">
+                                            <span t-esc="docs.company_id.name" style="ext-align:center"/>
+                                            <br/>
+                                            <span t-esc="move.product_id.display_name"/>
+
+                                            <br/>
+                                            <t t-if="docs.lot_producing_id">
+                                                Lot #:<span t-esc="docs.lot_producing_id.name"/>
+                                            </t>
+                                            <t t-if="docs.date_planned_start">
+                                                Pack Date:<span t-esc="docs.date_planned_start.strftime('%d/%m/%Y')"/>
+                                            </t>
+                                            <br/>     <t t-if="move.product_id.expiration_time">
+                                            <span t-set="d_delta" t-value="datetime.timedelta(move.product_id.expiration_time)"/>
+                                            Exp Date:<span t-set="d_dateorder" t-value="docs.date_planned_start"/>
+                                            <span t-set="d_paydate" t-value="d_dateorder + d_delta"/>
+
+                                            <span t-esc="d_paydate.strftime('%d.%m.%Y')"/>
+                                        </t>
+
+                                        </th>
+                                    </tr>
+                                    <t t-if="move_line.product_id.tracking != 'none'">
+                                        <tr>
+                                            <td>
+                                                <t t-if="move.product_id.barcode">
+                                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move.product_id.barcode , 600, 150)" style="width:100%;height:1rem" alt="Barcode"/>
+                                                    <span t-esc="move.product_id.barcode"/>
+                                                    <br/>
+
+                                                    <t t-if="move.product_id.is_offer_product">
+                                                        Price:<del t-field="move.product_id.list_price"/><![CDATA[&nbsp;]]>
+                                                        Offer:<span t-field="move.product_id.offer_price"/><br/>
+                                                    </t>
+
+                                                    <t t-else="">
+                                                        Price:<span t-esc="move.product_id.lst_price"/>
+                                                    </t>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="text-muted">No barcode available</span>
+                                                </t>
+                                            </td>
+
+                                        </tr>
+
+                                    </t>
+                                    <t t-if="move_line.product_id.tracking == 'none'">
+                                        <tr>
+                                            <td>
+                                                <t t-if="move_line.product_id.barcode">
+                                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move.product_id.barcode, 600, 150)" style="width:100%;height:1rem" alt="Barcode"/>
+                                                    <span t-esc="move.product_id.barcode"/>
+                                                    <br/>
+                                                    <t t-if="move.product_id.is_offer_product">
+                                                        Price:<del t-field="move.product_id.list_price"/><![CDATA[&nbsp;]]>
+                                                        Offer:<span t-field="move.product_id.offer_price"/><br/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        Price:<span t-esc="move.product_id.lst_price"/>
+                                                    </t>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="text-muted">No barcode available</span>
+                                                </t>
+                                            </td>
+
+                                        </tr>
+                                    </t>
+                                </table>
+
+
+
+                            </div>
+                        </t>
+                        <!--                        </t>-->
+                    </t>
+                    <!--                    </t>-->
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

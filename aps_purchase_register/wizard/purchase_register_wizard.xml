@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_register_view" model="ir.ui.view">
+            <field name="name">purchase_register_view</field>
+            <field name="model">purchase.register.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="oe_title">
+                        <field name="purchase_type" options="{'horizontal': true}" class="oe_edit_only" widget="radio"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="partner_ids" widget="many2many_tags"/>
+                            <field name="order_number"/>
+                            <field name="name" invisible="1"/>
+                            <field name="file" filename="name" invisible="1" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="date_to"/>
+                            <field name="product_ids"
+                                   attrs="{'invisible': [('purchase_type', '=', 'summary')]}"/>
+                            <field name="record_type"/>
+                              <field name="categ_ids" widget="many2many_tags"   attrs="{'invisible': [('purchase_type', '=', 'summary')]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Detail Report" name="generate_purchase_register_xlsx" type="object"
+                                default_focus="1" class="btn-primary"
+                                attrs="{'invisible': [('purchase_type', '=', 'summary')]}"/>
+                        <button string="Summary Report" name="generate_purchase_register_summary_xlsx" type="object"
+                                default_focus="1" class="btn-primary"
+                                attrs="{'invisible': [('purchase_type', '=', 'detail')]}"/>
+                        <button name="generate_purchase_register_summary_pdf" string="Summary PDF" class="btn-primary" type="object"  attrs="{'invisible': [('purchase_type', '=', 'detail')]}"/>
+                           <button name="generate_purchase_register_detail_pdf" string="Detail PDF" class="btn-primary" type="object"   attrs="{'invisible': [('purchase_type', '=', 'summary')]}"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="purchase_register_action" model="ir.actions.act_window">
+            <field name="name">Purchase Register</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.register.wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="purchase_register_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="purchase_register_menu" name="Purchase Register" parent="purchase.purchase_report"
+                  action="purchase_register_action"/>
+    </data>
+</odoo>

@@ -1,0 +1,131 @@
+<odoo>
+    <data>
+        <template id="delivery_slip_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+                            <div style="width:100%;">
+                                <table style="width:40%;float:right;font-size:12px;">
+                                    <tr>
+                                        <td>
+                                            <span t-field="o.partner_id.name"/><br/>
+                                            <t t-if="o.partner_id.street or o.partner_id.street2">
+                                                <span t-esc="o.partner_id.street"/><![CDATA[&nbsp;]]><span t-esc="o.partner_id.street2"/><br/>
+                                            </t>
+                                            <t t-if="o.partner_id.city">
+                                                <span t-esc="o.partner_id.city"/><![CDATA[&nbsp;]]>
+                                            </t>
+                                            <t t-if="o.partner_id.country_id">
+                                                <span t-field="o.partner_id.country_id"/><![CDATA[&nbsp;]]>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="row" style="width:100%;">
+                                <span style="width:100%;font-size:18px;font-weight:bold;padding-left:15px;">
+                                    <h4>
+                                        <strong><t t-esc="o.name"/></strong>
+                                    </h4>
+                                </span>
+                            </div>
+                            <div class="row" style="width:100%;padding-left:15px;">
+                                <table style="width:50%;margin-top:10px;font-size:12px;">
+                                    <tr>
+                                        <td style="width:25%;"><span>Order:</span></td>
+                                        <td style="width:25%;"><span>Shipping Order Date:</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:25%;"><span t-esc="o.origin"/></td>
+                                        <td style="width:25%;"> <t t-if="o.state == 'done'">
+                                <p t-field="o.date_done"/>
+                            </t>
+                            <t t-if="o.state != 'done'">
+                                <p t-field="o.scheduled_date"/>
+                           </t></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <table style="width:100%;margin-top:10px;font-size:12px;">
+                                <tr>
+                                    <th style="width:5%;border:1px solid black;padding-left:5px;">
+                                        <span>Sr.</span>
+                                    </th>
+<!--                                    <th style="width:15%;border:1px solid black;padding-left:5px;">-->
+<!--                                        <span>Barcode</span>-->
+<!--                                    </th>-->
+                                    <th style="width:45%;border:1px solid black;padding-left:5px;">
+                                        <span>Product</span>
+                                    </th>
+
+                                    <th style="width:15%;border:1px solid black;padding-left:5px;">
+                                        <span>Qty.</span>
+                                    </th>
+
+                                </tr>
+                                <t t-set="no" t-value="1"/>
+                                 <t t-set="moves" t-value="o.move_lines.filtered(lambda x: x.product_uom_qty)"/>
+                                <t t-foreach="moves" t-as="line">
+                                    <tr>
+                                        <td style="width:5%;border:1px solid black;">
+                                            <span style="padding-left:5px;" t-esc="no"/>
+                                        </td>
+<!--                                        <td style="width:15%;border:1px solid black;">-->
+<!--                                            <span style="padding-left:5px;" t-field="line.product_id.barcode"/>-->
+<!--                                        </td>-->
+                                        <td style="width:35%;border:1px solid black;">
+                                            <span style="padding-left:5px;" t-esc="line.product_id.display_name"/>
+                                        </td>
+
+                                        <td style="width:10%;border:1px solid black;">
+
+
+                                    <span t-field="line.product_uom_qty"/>
+                                    <span t-field="line.product_uom"/>
+
+
+                                        </td>
+                                    </tr>
+                                    <t t-set="no" t-value="no+1"/>
+                                </t>
+                            </table>
+<!--                            <table style="width:40%;float:right;margin-top:10px;font-size:12px;">-->
+<!--                                <tr>-->
+<!--                                    <td style="border-top:1px solid black;">-->
+<!--                                        <span><strong>Subtotal</strong></span>-->
+<!--                                    </td>-->
+<!--                                    <td style="border-top:1px solid black;text-align:right;">-->
+<!--                                        <span t-field="o.currency_id.symbol"/>-->
+<!--                                        <span><strong t-esc="'{0:,.2f}'.format(o.amount_untaxed)"/></span>-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td style="border-top:1px solid lightgrey;">-->
+<!--                                        <span><strong>Taxes</strong></span>-->
+<!--                                    </td>-->
+<!--                                    <td style="border-top:1px solid lightgrey;text-align:right;">-->
+<!--                                        <span t-field="o.currency_id.symbol"/>-->
+<!--                                        <span><strong t-esc="'{0:,.2f}'.format(o.amount_tax)"/></span>-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td style="border-top:1px solid black;">-->
+<!--                                        <span><strong>Total</strong></span>-->
+<!--                                    </td>-->
+<!--                                    <td style="border-top:1px solid black;text-align:right;">-->
+<!--                                        <span t-field="o.currency_id.symbol"/>-->
+<!--                                        <span><strong t-esc="'{0:,.2f}'.format(o.amount_total)"/></span>-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                            </table>-->
+                            <div class="row" style="width:100%;font-size:12px;padding-left:15px;margin-top:10px" >
+                                 Total Quantity: <span t-field="o.tot_qty"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

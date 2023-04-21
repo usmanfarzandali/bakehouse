@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="paperformat_purchase_order" model="report.paperformat">
+            <field name="name">Purchase Order – International Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">30</field>
+            <field name="margin_bottom">17</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">28</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_sale_order" model="report.paperformat">
+            <field name="name">Sale Order – International Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">30</field>
+            <field name="margin_bottom">17</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">28</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_invoice" model="report.paperformat">
+            <field name="name">Invoice – International Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">30</field>
+            <field name="margin_bottom">17</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">28</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="report_purchase_order" model="ir.actions.report">
+            <field name="name">Custom Purchase Order</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">aps_custom_sale_purchase_reports.purchase_order_template</field>
+            <field name="report_file">aps_custom_sale_purchase_reports.purchase_order_template</field>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="paperformat_id" ref="paperformat_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_sale_order" model="ir.actions.report">
+            <field name="name">Custom Sale Order</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">aps_custom_sale_purchase_reports.sale_order_template</field>
+            <field name="report_file">aps_custom_sale_purchase_reports.sale_order_template</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="paperformat_id" ref="paperformat_sale_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_invoice" model="ir.actions.report">
+            <field name="name">Custom Invoice</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">aps_custom_sale_purchase_reports.invoice_template</field>
+            <field name="report_file">aps_custom_sale_purchase_reports.invoice_template</field>
+            <field name="binding_model_id" ref="sale.model_account_move"/>
+            <field name="paperformat_id" ref="paperformat_invoice"/>
+            <field name="binding_type">report</field>
+        </record>
+
+         <record id="report_delivery_slip" model="ir.actions.report">
+            <field name="name">Custom Delivery Slip</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">aps_custom_sale_purchase_reports.delivery_slip_template</field>
+            <field name="report_file">aps_custom_sale_purchase_reports.delivery_slip_template</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="paperformat_id" ref="paperformat_invoice"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>
