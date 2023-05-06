@@ -27,9 +27,9 @@
 			<t t-else=""><span class="text-muted">No barcode available</span></t>
 		</div>
 	</template>
-
+<!--making changes here.......-->
 	<template id="report_price_barcode">
-		<div style="width: 100%; height:100%; text-align:center; font-size:10px; font-weight:bold;">
+		<div style="width: 100%; height:100%; text-align:center; font-size:18px; font-weight:bold;">
 			<t t-if="product.barcode">
 				<div>
 					<t t-esc="company.name"/><br/>
