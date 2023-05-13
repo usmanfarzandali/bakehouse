@@ -32,11 +32,9 @@
 		<div style="width: 100%; height:100%; text-align:center; font-size:18px; font-weight:bold;">
 			<t t-if="product.barcode">
 				<div>
-
-<!--					here changes may122-->
-
-<!--					<t t-esc="company.name"/><br/>-->
+					<t t-esc="company.name"/><br/>
 					<span t-field="product.display_name"/><br/>
+					<h3>okokokok22222</h3>
 					<t t-if="product.is_offer_product">
 						Price:<del t-field="product.list_price"/><![CDATA[&nbsp;]]>
 						Offer:<span t-field="product.offer_price"/><br/>
@@ -61,7 +59,7 @@
 						 t-else=""
 						 t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(product.barcode or ''), 900, 120)"
 						 style="width:100%;height::100%;"/>
-					<span style="font-size:20px;" t-field="product.barcode"/>
+					<span style="font-size:10px;" t-field="product.barcode"/>
 				</div>
 			</t>
 			<t t-else=""><span class="text-muted">No barcode available</span></t>
