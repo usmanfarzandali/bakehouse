@@ -22,7 +22,7 @@
 
 {
     'name': 'Product Barcode Generator',
-    'version': '14.0.3.3.0',
+    'version': '14.1.4.2.2',
     'summary': 'Generates EAN13 Standard Barcode for Product.',
     'live_test_url': 'https://www.youtube.com/watch?v=0BrFcOEkWu4&feature=youtu.be',
     'category': 'Inventory',
