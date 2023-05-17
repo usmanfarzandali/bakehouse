@@ -29,12 +29,11 @@
 	</template>
 <!--making changes here.......-->
 	<template id="report_price_barcode">
-		<div style="width: 100%; height:100%; text-align:center; font-size:18px; font-weight:bold;">
+		<div style="width: 100%; height:100%; text-align:center; font-size:14px; font-weight:bold;">
 			<t t-if="product.barcode">
 				<div>
 					<t t-esc="company.name"/><br/>
 					<span t-field="product.display_name"/><br/>
-					<h3>okokokok22222</h3>
 					<t t-if="product.is_offer_product">
 						Price:<del t-field="product.list_price"/><![CDATA[&nbsp;]]>
 						Offer:<span t-field="product.offer_price"/><br/>

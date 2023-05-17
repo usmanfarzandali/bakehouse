@@ -21,10 +21,8 @@
             <field name="name">Product Barcode Paper Format</field>
             <field name="default" eval="True"/>
             <field name="format">custom</field>
-<!--            <field name="page_height">38</field>-->
-<!--            <field name="page_width">89</field>-->
-            <field name="page_height">45</field>
-            <field name="page_width">85</field>
+            <field name="page_height">30</field>
+            <field name="page_width">50</field>
             <field name="orientation">Portrait</field>
             <field name="margin_top">1</field>
             <field name="margin_bottom">0</field>
@@ -34,6 +32,12 @@
             <field name="header_spacing">0</field>
             <field name="dpi">90</field>
         </record>
+
+
+
+
+
+
 
 <!--        <record id="report_product_without_barcode" model="ir.actions.report">-->
 <!--            <field name="name">Barcode Without Price (PDF)</field>-->
@@ -74,7 +78,7 @@
 
 
         <record id="report_product_with_variant_barcode" model="ir.actions.report">
-            <field name="name">Barcode Variant Price (PDF)</field>
+            <field name="name">Barcode without price (PDF)</field>
             <field name="model">product.product</field>
             <field name="report_type">qweb-pdf</field>
             <field name="report_name">product_barcode_space.report_pvariant_barcode</field>

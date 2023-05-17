@@ -29,7 +29,7 @@
 	</template>
 <!--making changes here.......-->
 	<template id="report_price_barcode">
-		<div style="width: 100%; height:100%; text-align:center; font-size:18px; font-weight:bold;">
+		<div style="width: 100%; height:100%; text-align:center; font-size:15px; font-weight:bold;">
 			<t t-if="product.barcode">
 				<div>
 
@@ -61,26 +61,29 @@
 						 t-else=""
 						 t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(product.barcode or ''), 900, 120)"
 						 style="width:100%;height::100%;"/>
-					<span style="font-size:20px;" t-field="product.barcode"/>
+					<span style="font-size:14px;" t-field="product.barcode"/>
 				</div>
 			</t>
 			<t t-else=""><span class="text-muted">No barcode available</span></t>
 		</div>
 	</template>
 
+
+<!--	here new changes 16-may-->
+
 	<template id="report_variant_price_barcode">
-		<div style="width: 100%; height:100%; text-align:center; font-size:10px; font-weight:bold;">
+		<div style="width: 100%; height:100%; text-align:center; font-size:14px; font-weight:bold;">
 			<t t-if="product.barcode">
 				<div>
-					<t t-esc="company.name"/><br/>
+<!--					<t t-esc="company.name"/><br/>-->
 					<span t-field="product.display_name"/><br/>
-					<t t-if="product.is_offer_product">
-						Price:<del t-field="product.lst_price"/><![CDATA[&nbsp;]]>
-						Offer:<span t-field="product.offer_price"/><br/>
-					</t>
-					<t t-else="">
-						Price:<span t-field="product.lst_price"/><br/>
-					</t>
+<!--					<t t-if="product.is_offer_product">-->
+<!--						Price:<del t-field="product.lst_price"/><![CDATA[&nbsp;]]>-->
+<!--						Offer:<span t-field="product.offer_price"/><br/>-->
+<!--					</t>-->
+<!--					<t t-else="">-->
+<!--						Price:<span t-field="product.lst_price"/><br/>-->
+<!--					</t>-->
 						<t t-if="product.product_expiry">
 						Expiry:<![CDATA[&nbsp;]]><span t-field="product.product_expiry"/>
 					</t>
@@ -98,7 +101,7 @@
 						 t-else=""
 						 t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote_plus(product.barcode or ''), 900, 120)"
 						 style="width:100%;height::100%;"/>
-					<span style="font-size:10px;" t-field="product.barcode"/>
+					<span style="font-size:14px;" t-field="product.barcode"/>
 				</div>
 			</t>
 			<t t-else=""><span class="text-muted">No barcode available</span></t>
