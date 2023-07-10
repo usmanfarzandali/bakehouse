@@ -9,6 +9,7 @@ class PurchaseOrder(models.Model):
                                             ('admin', 'Administrator'),
                                             ('purchase', 'Purchase Order')])
 
+
     def button_confirm(self):
         if self.user_id.has_group('aps_purchase_approval.group_purchase_user') \
                 and not self.user_id.has_group('aps_purchase_approval.group_purchase_manager') \

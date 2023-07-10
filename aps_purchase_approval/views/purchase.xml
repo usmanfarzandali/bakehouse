@@ -12,7 +12,10 @@
                         attrs="{'invisible': [('state', 'not in', ['purchase_manager'])]}" groups="aps_purchase_approval.group_purchase_manager"/>
                 <button name="action_confirm_admin" string="Confirm Admin" type="object" class="oe_highlight"
                         attrs="{'invisible': [('state', 'not in', ['admin'])]}" groups="aps_purchase_approval.group_purchase_administrator"/>
+            <field name="my_field" />
             </xpath>
+
+            
 
         </field>
     </record>
